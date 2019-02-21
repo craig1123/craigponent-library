@@ -1,0 +1,210 @@
+@import "./../variables";
+
+.craig-btn {
+  background-color: $transparent;
+  border: 2px solid $transparent;
+  border-radius: 3px;
+  color: $white;
+  cursor: pointer;
+  display: block;
+  font-family: 'Roboto', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  margin-right: 8px;
+  padding: 0 26px;
+  text-align: center;
+  text-transform: capitalize;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    background-color: darken($white, 10%); // stylelint-disable-line sh-waqar/declaration-use-variable
+  }
+
+  &:disabled {
+    background-color: $gray-2;
+    color: $gray-6;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  &.sm {
+    font-size: 12px;
+    height: 40px;
+    line-height: 36px;
+  }
+
+  &.md {
+    font-size: 14px;
+    height: 51px;
+    line-height: 48px;
+    min-width: 145px;
+  }
+
+  &.lg {
+    font-size: 16px;
+    height: 62px;
+    line-height: 60px;
+    min-width: 200px;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+  }
+
+  &.rounded {
+    border-radius: 25px;
+  }
+
+  &.loading {
+    pointer-events: none;
+  }
+
+  &.dark {
+    border: none;
+
+    &:disabled {
+      background-color: $gray-13;
+      color: $black;
+    }
+  }
+}
+
+.btn-flex {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.craig-btn-default {
+  background-color: $white;
+  border: 1px solid $gray-5;
+  color: $gray-12;
+
+  &.dark {
+    background-color: $gray-13;
+    color: $white;
+
+    &:hover {
+      border: 1px solid $gray-9;
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: darken($gray-13, 2%) !important; // stylelint-disable-line
+    }
+  }
+}
+
+.craig-btn-link {
+  background-color: $white;
+  border: 1px solid $gray-5;
+  color: $blue-accent;
+
+  &.dark {
+    background-color: $gray-13;
+    color: $blue-accent;
+
+    &:hover {
+      border: 1px solid $gray-9;
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: darken($gray-13, 2%) !important; // stylelint-disable-line
+    }
+  }
+}
+
+.craig-btn-destructive {
+  background-color: $white;
+  border-color: $gray-5;
+  color: $red-accent;
+
+  &.dark {
+    background-color: $gray-13;
+
+    &:hover {
+      border: 1px solid $gray-9;
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: darken($gray-13, 2%) !important; // stylelint-disable-line
+    }
+  }
+}
+
+.craig-btn-gray {
+  background-color: $gray-2;
+  color: $gray-10;
+
+  &.dark {
+    background-color: $gray-13;
+    color: $white;
+
+    &:hover {
+      border: 1px solid $gray-9;
+      opacity: 1;
+    }
+
+    &:active {
+      background-color: darken($gray-13, 2%) !important; // stylelint-disable-line
+    }
+  }
+}
+
+.craig-btn-primary {
+  background-color: $blue-accent;
+  border: none;
+  color: $white;
+
+  &:hover {
+    background-color: $blue-accent;
+    color: $white;
+  }
+
+  &:active {
+    background-color: darken($blue-accent, 10%) !important; // stylelint-disable-line
+  }
+}
+
+.craig-btn-success {
+  background-color: $main-green;
+  border: none;
+  color: $white;
+
+  &:hover {
+    background-color: $main-green;
+    color: $white;
+  }
+
+  &:active {
+    background-color: darken($main-green, 10%) !important; // stylelint-disable-line
+  }
+}
+
+.craig-btn-transparent {
+  background-color: $transparent;
+  transition: opacity 0.3s ease;
+
+  &.bordered {
+    border: 2px solid $half-white;
+  }
+
+  &:hover {
+    background-color: $white;
+    border: 2px solid $half-white;
+    color: $gray-12;
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: darken($white, 10%) !important; // stylelint-disable-line
+  }
+}

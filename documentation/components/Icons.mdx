@@ -1,0 +1,151 @@
+---
+name: Icons
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import {
+  AddBox,
+  AddButton,
+  AuthorizedUser,
+  CancelButton,
+  CheckMark,
+  Close,
+  Copy,
+  CurrencyDollar,
+  Deposit,
+  DownCaret,
+  Edit,
+  Email,
+  FacebookLogo,
+  File,
+  Info,
+  InstagramLogo,
+  LeftArrow,
+  Link,
+  LinkedInLogo,
+  MenuIcon,
+  Pdf,
+  Pencil,
+  PendingUser,
+  Plus,
+  QuestionMark,
+  RightCaret,
+  T0Logo,
+  TelegramLogo,
+  TwitterLogo,
+  craigLogo,
+  UpCaret,
+  Upload,
+  UpTriangle,
+  User,
+  Wallet,
+  Warning,
+  Withdraw,
+} from './../../src/icons'
+
+
+# Icons
+
+```javascript
+import CloseSVG from 'craig-component-library/dist/icons/close.svg'
+```
+
+### Best practices
+- Design will define the best practices here
+
+## Properties
+
+* Don't worry about the Default column below. Each icon has it's own default that you can override.
+* You can pass down any props to the SVG
+
+<PropsTable of={FacebookLogo} />
+
+## Action Icons
+
+<Playground>
+  {() => {
+    const style = { marginRight: '25px' };
+
+    return (
+      <>
+        <AddButton style={style} />
+        <AddBox style={style} fillColor="#fff" />
+        <Plus style={style} fillColor="#fff" />
+        <CancelButton style={style} fillColor="#fff" />
+        <Close style={style} fillColor="#fff" />
+        <CheckMark style={style} fillColor="#fff" />
+        <Copy style={style} fillColor="#fff" />
+        <MenuIcon style={style} />
+        <QuestionMark style={style} fillColor="#fff" />
+        <Info style={style} fillColor="#fff" />
+        <Edit style={style} fillColor="#fff" />
+        <Pencil style={style} />
+      </>
+    )
+  }}
+</Playground>
+
+## Arrow Icons
+
+<Playground>
+  {() => {
+    const style = { marginRight: '25px' };
+
+    return (
+      <>
+        <DownCaret style={style} fillColor="#fff" />
+        <UpCaret style={style} fillColor="#fff" />
+        <RightCaret style={style} fillColor="#fff" />
+        <LeftArrow style={style} fillColor="#fff" />
+        <UpTriangle style={style} />
+        <Deposit style={style} fillColor="#fff" />
+        <Withdraw style={style} fillColor="#fff" />
+        <Upload style={style} fillColor="#fff" />
+      </>
+    )
+  }}
+</Playground>
+
+## Logo Icons
+
+<Playground>
+  {() => {
+    const style = { marginRight: '25px' };
+
+    return (
+      <>
+        <T0Logo style={style} fillColor="#fff" />
+        <craigLogo style={style} />
+        <FacebookLogo style={style} fillColor="#fff" secondaryColor="transparent" />
+        <InstagramLogo style={style} fillColor="#fff" />
+        <LinkedInLogo style={style} fillColor="#fff" />
+        <TwitterLogo style={style} fillColor="#fff" />
+        <TelegramLogo style={style} fillColor="#fff" />
+      </>
+    )
+  }}
+</Playground>
+
+## Miscellaneous Icons
+
+<Playground>
+  {() => {
+    const style = { marginRight: '25px' };
+
+    return (
+      <>
+        <CurrencyDollar style={style} fillColor="#fff" />
+        <Email style={style} />
+        <File style={style} />
+        <Link style={style} />
+        <Pdf style={style} fillColor="#fff"/>
+        <User style={style} fillColor="#fff"/>
+        <PendingUser style={style} fillColor="#fff"/>
+        <AuthorizedUser style={style} fillColor="#fff"/>
+        <Wallet style={style} fillColor="#fff" />
+        <Warning style={style} />
+      </>
+    )
+  }}
+</Playground>

@@ -1,0 +1,61 @@
+@import "./../variables";
+
+$primary-background: #cce5ff;
+$primary-color: #004085;
+$success-background: #d4edda;
+$success-color: #155724;
+$danger-background: #f8d7da;
+$danger-color: #721c24;
+$warning-background: #fff3cd;
+$warning-color: #856404;
+
+.alert {
+  border: none;
+  border-radius: .25rem;
+  margin-bottom: 1rem;
+  padding: .75rem 1.25rem;
+  position: relative;
+}
+
+.alert-primary {
+  background-color: $primary-background;
+  color: $primary-color;
+}
+
+.alert-success {
+  background-color: $success-background;
+  color: $success-color;
+}
+
+.alert-danger {
+  background-color: $danger-background;
+  color: $danger-color;
+}
+
+.alert-warning {
+  background-color: $warning-background;
+  color: $warning-color;
+}
+
+.close {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: $transparent;
+  border: 0;
+  color: $inherit;
+  cursor: pointer;
+  float: right;
+  font-size: 38px;
+  font-weight: 200;
+  height: 100%;
+  line-height: 1;
+  margin-right: 3px;
+  opacity: .5;
+  padding: 0px 0px 3px;
+  position: absolute;
+  right: 0;
+  text-shadow: 0 1px 0 #fff;
+  top: 0;
+  width: 50px;
+}

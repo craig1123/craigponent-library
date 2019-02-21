@@ -1,0 +1,138 @@
+---
+name: Modal
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Component from "react-component-component";
+import { Row } from './helpers';
+import { Modal, Button, Input } from './../../src'
+
+# Modal
+
+```javascript
+import Modal from 'craig-component-library/dist/Modal'
+```
+
+
+## Properties
+
+<PropsTable of={Modal} />
+
+## Basic usage
+
+<Playground>
+  <Component
+    initialState={{
+      isOpen: false
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ isOpen: !state.isOpen });
+      return (
+        <>
+          <Button size="md" onClick={toggle}>Click Me</Button>
+          <Modal header="Basic Modal" isOpen={state.isOpen} toggle={toggle}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Modal>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Component
+    initialState={{
+      isOpen: false
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ isOpen: !state.isOpen });
+      return (
+        <>
+          <Button size="md" onClick={toggle}>Dark</Button>
+          <Modal
+            header="Basic Modal"
+            isOpen={state.isOpen}
+            styleMode="dark"
+            toggle={toggle}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Modal>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Sizes
+
+<Playground>
+  <Component
+    initialState={{
+      isOpen: false,
+      size: 'md'
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ isOpen: !state.isOpen })
+      return (
+        <>
+          <Row>
+            <Button size="md" onClick={() => setState({ isOpen: !state.isOpen, size: 'sm' })}>
+              sm
+            </Button>
+            <Button size="md" onClick={() => setState({ isOpen: !state.isOpen, size: 'md' })}>
+              md
+            </Button>
+            <Button size="md" onClick={() => setState({ isOpen: !state.isOpen, size: 'lg' })}>
+              lg
+            </Button>
+            <Button size="md" onClick={() => setState({ isOpen: !state.isOpen, size: 'xl' })}>
+              xl
+            </Button>
+          </Row>
+          <Modal
+            header="Basic Modal"
+            isOpen={state.isOpen}
+            size={state.size}
+            toggle={toggle}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Modal>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+
+## Centered
+
+<Playground>
+  <Component
+    initialState={{
+      isOpen: false
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ isOpen: !state.isOpen });
+      return (
+        <>
+          <Button size="md" onClick={toggle}>Centered</Button>
+          <Modal
+            header="Basic Modal"
+            isOpen={state.isOpen}
+            centered
+            toggle={toggle}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Modal>
+        </>
+      )
+    }}
+  </Component>
+</Playground>

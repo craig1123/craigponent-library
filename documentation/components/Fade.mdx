@@ -1,0 +1,94 @@
+---
+name: Fade
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Component from "react-component-component";
+import { Row } from './helpers';
+import { Fade, Button, Input } from './../../src'
+
+# Fade
+
+## Install
+
+React transition group is needed for Fade
+
+```bash
+yarn add react-transition-group
+```
+
+```javascript
+import Fade from 'craig-component-library/dist/Fade'
+```
+
+
+## Properties
+
+<PropsTable of={Fade} />
+
+## Basic usage
+
+<Playground>
+  <Component
+    initialState={{
+      in: true,
+      duration: 150
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ in: !state.in });
+      return (
+        <>
+          <Row>
+            <Input
+              label="Duration"
+              value={state.duration}
+              type="number"
+              onChange={(e) => setState({ duration: parseInt(e.target.value, 10)})}
+            />
+          </Row>
+          <Button size="md" onClick={toggle}>Click Me</Button>
+          <Fade in={state.in} duration={state.duration}>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Fade>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Callbacks
+
+<Playground>
+  <Component
+    initialState={{
+      in: true,
+      firstText: '',
+      text: '',
+    }}
+  >
+    {({ setState, state }) => {
+      const toggle = () => setState({ in: !state.in });
+      return (
+        <>
+          <p>{state.firstText}</p>
+          <p>{state.text}</p>
+          <Button size="md" onClick={toggle}>Click Me</Button>
+          <Fade
+            in={state.in}
+            duration={1000}
+            onEnter={() => setState({ firstText: 'Enter' })}
+            onEntering={() => setState({ text: 'Entering!' })}
+            onEntered={() => setState({ text: 'Entered!' })}
+            onExit={() => setState({ firstText: 'Exit!' })}
+            onExiting={() => setState({ text: 'Exiting!' })}
+            onExited={() => setState({ text: 'Exited!' })}
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </Fade>
+        </>
+      )
+    }}
+  </Component>
+</Playground>

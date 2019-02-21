@@ -1,0 +1,75 @@
+@import "./../variables";
+
+.table {
+  background-color: $transparent;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  th {
+    text-align: inherit;
+  }
+
+  td {
+    font-size: 16px;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $gray-3;
+    border-top: 1px solid $gray-3;
+    padding: 0.75rem;
+  }
+
+  thead {
+    color: $gray-7;
+    font-size: 14px;
+    font-weight: 400;
+
+    th {
+      font-weight: 400;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.table-hover {
+  tbody {
+    tr {
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+.table-bordered {
+  border: 1px solid $gray-3;
+
+  th,
+  td {
+    border: 1px solid $gray-3;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.table-sm {
+  th,
+  td {
+    padding: 0.3rem;
+  }
+}
+
+.table-responsive {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
+  width: 100%;
+}

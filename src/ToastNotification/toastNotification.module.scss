@@ -1,0 +1,128 @@
+@import "./../variables";
+@import "./../layout";
+
+.toast-wrapper {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 10px);
+  overflow: hidden;
+  position: fixed;
+  text-align: right;
+  width: 100vw;
+  z-index: 999;
+
+  &.top_left {
+    left: 10px;
+    top: 10px;
+  }
+
+  &.top_right {
+    right: 10px;
+    top: 10px;
+  }
+
+  &.top_center {
+    left: 50%;
+    top: $header-height;
+    transform: translateX(-50%);
+
+    @media (max-width: $large-phone) {
+      left: 15%;
+      transform: translateX(-15%);
+    }
+  }
+
+  &.bottom_left {
+    bottom: 10px;
+    left: 10px;
+  }
+
+  &.bottom_right {
+    bottom: 10px;
+    right: 10px;
+  }
+
+  &.bottom_center {
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .toast {
+      margin-bottom: 0px;
+    }
+
+    @media (max-width: $large-phone) {
+      left: 15%;
+      transform: translateX(-15%);
+    }
+  }
+}
+
+.toast {
+  align-items: center;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-name: fadeInTop;
+  display: flex;
+  margin-bottom: 15px;
+  min-height: 50px;
+  padding: 8px 30px;
+  position: relative;
+  white-space: pre-line;
+  width: 100%;
+
+  // &.bottom {
+  //   animation-name: fadeInBottom;
+  // }
+
+  @media (max-width: $large-phone) {
+    padding: 10px 20px;
+  }
+}
+
+.close-toast {
+  background: none; // stylelint-disable-line sh-waqar/declaration-use-variable
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 5px;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: -3px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+@keyframes fadeInTop {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.toast-container {
+  @include container;
+  position: relative;
+  text-align: left;
+}

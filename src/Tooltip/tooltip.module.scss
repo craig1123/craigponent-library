@@ -1,0 +1,37 @@
+.tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 98,
+}
+
+.tooltip-arrow {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  height: 0;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  transform-origin: top;
+  width: 0;
+  will-change: transform;
+  z-index: 99;
+}
+
+.tip-container {
+  backface-visibility: hidden;
+  border-radius: 4;
+  box-sizing: content-box;
+  max-width: 420px;
+  padding: .5em 1em;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  transform-origin: top;
+  white-space: nowrap;
+  will-change: transform;
+  z-index: 99;
+}
+
+.gap {
+  height: 20px;
+  position: absolute;
+  width: 100%;
+}

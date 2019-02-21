@@ -1,0 +1,108 @@
+---
+name: ProgressTracker
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz'
+import Component from "react-component-component";
+import { Row } from './helpers';
+import { ProgressTracker, Button } from './../../src'
+
+# ProgressTracker
+
+ProgressTracker shows an easy status update on which page the user is on. 1 - 2 - 3
+
+```javascript
+import ProgressTracker from 'craig-component-library/dist/ProgressTracker'
+```
+
+## Properties
+
+<PropsTable of={ProgressTracker} />
+
+
+## Basic Usage
+
+<Playground>
+  <Component
+    initialState={{
+      activeIndex: 1
+    }}
+  >
+    {({ setState, state }) => {
+      const progressTrackerWords = [
+        'Create Account',
+        'Issuer Info',
+        'Offering Info',
+        'Submit',
+      ];
+      return (
+        <>
+          <ProgressTracker
+            activeIndex={state.activeIndex}
+            selectIndex={(i) => () => setState({ activeIndex: i })}
+            items={progressTrackerWords}
+          />
+
+          <div style={{ display: 'flex', justifyContent: 'space-around', marginTop: '100px' }}>
+            <Button
+              disabled={state.activeIndex === 1}
+              onClick={() => setState({ activeIndex: state.activeIndex - 1 })}
+            >
+              Previous Page
+            </Button>
+            <Button
+              disabled={progressTrackerWords.length === state.activeIndex}
+              onClick={() => setState({ activeIndex: state.activeIndex + 1 })}
+            >
+              Next Page
+            </Button>
+          </div>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Vertical
+
+<Playground>
+  <Component
+    initialState={{
+      activeIndex: 1
+    }}
+  >
+    {({ setState, state }) => {
+      const progressTrackerWords = [
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        'Issuer Info',
+        'Offering Info',
+        'Submit',
+      ];
+      return (
+        <>
+          <Row>
+            <Button
+              disabled={state.activeIndex === 1}
+              onClick={() => setState({ activeIndex: state.activeIndex - 1 })}
+            >
+              Previous Page
+            </Button>
+            <Button
+              disabled={progressTrackerWords.length === state.activeIndex}
+              onClick={() => setState({ activeIndex: state.activeIndex + 1 })}
+            >
+              Next Page
+            </Button>
+          </Row>
+          <ProgressTracker
+            activeIndex={state.activeIndex}
+            selectIndex={(i) => () => setState({ activeIndex: i })}
+            items={progressTrackerWords}
+            vertical
+          />
+        </>
+      )
+    }}
+  </Component>
+</Playground>
