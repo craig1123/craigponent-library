@@ -1,0 +1,79 @@
+---
+name: Loading
+menu: Components
+route: /components-loading
+---
+
+import { Playground, Props } from 'docz';
+import { Loading, Button } from '../../lib';
+import { Row, Box } from './helpers';
+
+# Loading
+
+```javascript
+import Loading from 'craigponent-library/dist/Loading';
+```
+
+Loaders help the user feel like things are happening
+
+## Properties
+* Pass down any props to the Loading Div
+<Props of={Loading} />
+
+## Basic usage
+
+<Playground>
+  <Box style={{ background: "#fff", padding: '20px' }} minHeight={50}>
+    <Loading />
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Loading styleMode="dark" />
+</Playground>
+
+
+## Color
+* Pass in any color hex or RGB
+
+<Playground>
+  <Row>
+    <Loading color="blue" />
+    <Loading color="red" />
+    <Loading color="green" />
+  </Row>
+</Playground>
+
+## Sizes
+* sm, md, lg, or any pixel value
+
+<Playground>
+  <Row>
+    <Loading styleMode="dark" size="sm" />
+    <Loading styleMode="dark" size="md" />
+    <Loading styleMode="dark" size="lg" />
+    <Loading styleMode="dark" size="50px" />
+    <Loading styleMode="dark" size="10px" />
+  </Row>
+</Playground>
+
+## Can be used with a button
+
+<Playground>
+  <Button btnType="success" styleMode="dark" loading size="lg">
+    Submit
+  </Button>
+</Playground>
+
+## Dots
+
+<Playground>
+  <Row>
+    <Loading type="dots" size="sm" />
+    <Loading type="dots" size="md" />
+    <Loading type="dots" size="lg" />
+    <Loading type="dots" size="80px" />
+  </Row>
+</Playground>

@@ -1,0 +1,135 @@
+@import "./../variables";
+
+.table {
+  background-color: $transparent;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  width: 100%;
+
+  th {
+    text-align: inherit;
+  }
+
+  td {
+    color: $gray-10;
+    font-size: 14px;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $gray-3;
+    border-top: 1px solid $gray-3;
+    padding: 0.75rem;
+  }
+
+  thead {
+    color: $gray-7;
+    font-size: 14px;
+    font-weight: 400;
+
+    th {
+      font-weight: 400;
+      padding: 12px 0.75rem;
+      vertical-align: bottom;
+    }
+  }
+}
+
+.striped {
+  tbody {
+    tr:nth-of-type(odd) {
+      background-color: $gray-1;
+    }
+  }
+}
+
+.table-hover {
+  tbody {
+    tr {
+      transition: background-color 140ms ease-in-out;
+
+      &:hover {
+        background-color: $gray-2;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.table-bordered {
+  border: 1px solid $gray-3;
+
+  th,
+  td {
+    border: 1px solid $gray-3;
+  }
+
+  thead {
+    th,
+    td {
+      border-bottom-width: 2px;
+    }
+  }
+}
+
+.table-sm {
+  thead {
+    th {
+      padding: 0.3rem;
+    }
+  }
+
+  th,
+  td {
+    padding: 0.3rem;
+  }
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.table-responsive {
+  display: block;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.dark {
+  td {
+    color: $white;
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid $gray-13;
+    border-top: 1px solid $gray-13;
+  }
+
+  &.striped {
+    tbody {
+      tr:nth-of-type(odd) {
+        background-color: $gray-14;
+      }
+    }
+  }
+
+  &.table-hover {
+    tbody {
+      tr:hover {
+        background-color: $gray-13;
+      }
+    }
+  }
+
+  &.table-bordered {
+    border: 1px solid $gray-13;
+
+    th,
+    td {
+      border: 1px solid $gray-13;
+    }
+  }
+}

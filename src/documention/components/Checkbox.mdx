@@ -1,0 +1,78 @@
+---
+name: Checkbox
+menu: Components
+route: /components-checkbox
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row, Box } from './helpers';
+import { Checkbox } from '../../lib';
+
+# Checkbox
+
+```javascript
+import Checkbox from 'craigponent-library/dist/Checkbox';
+```
+
+## Properties
+
+<Props of={Checkbox} />
+
+## Basic usage
+
+<Playground>
+  <Box style={{ background: '#fff', color: '#545658', padding: '20px' }} minHeight={50}>
+    <Checkbox label="Light" name="light-checkbox1" />
+    <Checkbox label="Checkboxes" name="light-checkbox2" />
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Box style={{ background: '#000', color: '#fff', padding: '20px' }} minHeight={50}>
+    <Checkbox
+      label="Choose me"
+      name="dark-checkbox1"
+      required
+      styleMode="dark"
+    />
+    <Checkbox
+      label="I'm Dark"
+      name="dark-checkbox2"
+      required
+      styleMode="dark"
+    />
+  </Box>
+</Playground>
+
+## Validations
+
+<Playground>
+  <Box style={{ background: '#000', color: '#fff', padding: '20px' }} minHeight={50}>
+    <Checkbox
+      label="I'm ambitious. I'm a Slytherin"
+      name="checkbox1"
+      styleMode="dark"
+      valid
+    />
+    <Checkbox
+      label="I'm smart. I'm a Ravenclaw"
+      name="checkbox2"
+      styleMode="dark"
+      warning
+    />
+    <Checkbox
+      label="I'm courageous. I'm a Gryffindor"
+      name="checkbox3"
+      styleMode="dark"
+      invalid
+    />
+    <Checkbox
+      label="I'm a hufflepuff"
+      name="checkbox4"
+      styleMode="dark"
+    />
+  </Box>
+</Playground>

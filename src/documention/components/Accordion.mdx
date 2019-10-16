@@ -1,0 +1,73 @@
+---
+name: Accordion
+menu: Components
+route: /components-accordion
+---
+
+import { Playground, Props } from 'docz';
+import Component from 'react-component-component';
+import { Accordion, Button, Fade, Collapse } from '../../lib';
+import { Box } from './helpers';
+
+# Accordion
+
+```javascript
+import Accordion from 'craigponent-library/dist/Accordion';
+```
+
+Alerts are to assist communication between the user and the UI
+
+## Properties
+
+<Props of={Accordion} />
+
+## Basic Accordion
+
+<Playground>
+  <Box style={{ background: "#fff", padding: '20px' }} minHeight={200}>
+    <Accordion
+      title="Open me"
+      description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    />
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Box>
+    <Accordion
+      styleMode="dark"
+      title="Open me"
+      description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    />
+  </Box>
+</Playground>
+
+## Controlled Accordion
+
+<Playground>
+  <Component
+    initialState={{
+      open: true,
+    }}
+  >
+    {({ setState, state }) => (
+      <>
+        <Accordion
+          styleMode="dark"
+          open={state.open}
+          title="Controlled by parent component"
+          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        />
+        <Button
+          onClick={() => setState({ open: !state.open })}
+          btnType="primary"
+          size="lg"
+        >
+          {state.open ? 'Close' : 'Open'}
+        </Button>
+      </>
+    )}
+  </Component>
+</Playground>

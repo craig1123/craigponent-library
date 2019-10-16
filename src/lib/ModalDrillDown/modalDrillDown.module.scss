@@ -1,0 +1,67 @@
+/* stylelint-disable declaration-no-important */
+@import "./../variables";
+
+.modal-dialog {
+  @media (max-width: $tablet) {
+    height: 100%;
+    margin-bottom: 0px !important;
+    margin-top: -1px !important;
+    max-width: 100%;
+  }
+}
+
+.modal-content {
+  height: 100%;
+}
+
+.modal-header {
+  align-items: flex-start;
+  background: $gray-1;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.modal-back-arrow-btn {
+  background-color: $transparent;
+  border: none;
+  flex: 1 0;
+  text-align: left;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.modal-title {
+  flex: 3 0;
+  font-size: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin: 0;
+  text-align: center;
+}
+
+.empty-div {
+  flex: 1 0;
+  padding: 10px;
+  width: 40px;
+}
+
+.modal-body {
+  padding: 0 !important;
+}
+
+.drill-down-body {
+  padding: 15px;
+}
+
+.dark.modal-header {
+  background: $gray-14;
+
+  .modal-title {
+    color: $white;
+  }
+}

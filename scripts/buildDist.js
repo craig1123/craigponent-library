@@ -1,10 +1,15 @@
 #!/usr/bin/env node
+
+/* eslint-disable no-console */
+require('colors');
 const path = require('path');
 const fs = require('fs');
 const { execSync } = require('child_process');
 
 const rootDir = path.resolve(__dirname, '../');
-const componentPath = path.resolve(rootDir, './src');
+const componentPath = path.resolve(rootDir, './src/lib');
+const utilsPath = path.resolve(componentPath, './utils');
+const iconsPath = path.resolve(componentPath, './icons');
 const distPath = path.resolve(rootDir, './dist');
 
 const blackListDir = ['icons', 'utils'];
@@ -20,6 +25,7 @@ function setup() {
 
   // Create dist folder
   if (!fs.existsSync(distPath)) fs.mkdirSync(distPath);
+  console.log('dist folder cleaned'.yellow);
 }
 
 /** Copy SCSS */
@@ -28,21 +34,35 @@ const copyScss = () => {
     `find ${componentPath} -maxdepth 1 -type f -name \\*.scss -exec cp {} ./dist \\;`,
     execOptions,
   );
+  console.log(
+    `
+CSS copied over
+`.magenta,
+  );
 };
 
 /** Bundle blackListed Directories */
 const bundleBlackListed = () => {
   blackListDir.forEach(folder => {
     execSync(
-      `BABEL_ENV=production babel ${componentPath}/${folder} -d ${distPath}/${folder} --ignore scss,test.js`,
+      `BABEL_ENV=production babel --presets=@babel/preset-env ${componentPath}/${folder} -d ${distPath}/${folder} --ignore scss,test.js`,
       execOptions,
     );
   });
+  console.log(
+    `Icons and utils babelized
+`.gray,
+  );
 };
 
-/** Get Component Folders */
-const getFolders = () => {
-  const data = execSync(`find ${componentPath} -type d`, execOptions);
+/**
+ * [findType get files or folders and spit it out into an array]
+ * @param  {String} [filters='-type d'] [filters for find command]
+ * @param  {String} [folderPath=componentPath] [path of directory]
+ * @return {array}           [description]
+ */
+const findType = (filters = '-type d', folderPath = componentPath) => {
+  const data = execSync(`find ${folderPath} ${filters}`, execOptions);
   return [
     ...new Set(
       data
@@ -53,10 +73,53 @@ const getFolders = () => {
   ];
 };
 
+/** Build craigponents array to prevent it from bundling itself when compoennts reuse other components */
+const buildCraigponents = () => {
+  let craigponents = [];
+
+  /* Utils */
+  const utils = findType('-type f', utilsPath);
+  utils
+    .filter(file => file !== '')
+    .forEach(file => {
+      const takeOutExtension = file
+        .split('.')
+        .slice(0, -1)
+        .join('.');
+      craigponents.push(`craigponent-library/dist/utils/${takeOutExtension}`);
+    });
+
+  /* Icons */
+  const icons = findType('-type f', iconsPath);
+  icons
+    .filter(file => file !== '')
+    .forEach(file => {
+      const takeOutExtension = file
+        .split('.')
+        .slice(0, -1)
+        .join('.');
+      craigponents.push(`craigponent-library/dist/icons/${takeOutExtension}`);
+    });
+
+  /* Components */
+  const components = findType();
+  components
+    .filter(file => file !== '')
+    .forEach(file => {
+      craigponents.push(`craigponent-library/dist/${file}`);
+    });
+
+  craigponents = JSON.stringify(craigponents, null, 2);
+  const write = `export default ${craigponents}`;
+
+  /** Write file */
+  fs.writeFileSync(`${distPath}/craigponents.js`, write, 'utf8');
+};
+
 /** Build Entries Object */
 const buildEntries = () => {
   let entries = {};
-  const folders = getFolders();
+  const folders = findType();
   folders
     .filter(folder => blackListDir.indexOf(folder) === -1 || !folder) // Get rid of blacklisted directories
     .forEach(folder => {
@@ -90,10 +153,17 @@ const buildEntries = () => {
     JSON.stringify(entries, null, 4),
     'utf8',
   );
+
+  console.log('craigponent entries object created'.blue);
+  console.log(
+    `Ready for rollup build!!
+  `.green.bold,
+  );
 };
 
 Promise.resolve(setup())
   .then(copyScss)
   .then(bundleBlackListed)
+  .then(buildCraigponents)
   .then(buildEntries)
-  .catch(error => console.error('Bundle Failed:', error));
+  .catch(error => console.error(`Bundle Failed: ${error}`.red));

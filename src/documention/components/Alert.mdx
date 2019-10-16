@@ -1,0 +1,101 @@
+---
+name: Alert
+menu: Components
+route: /components-alert
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Alert, Button, Fade, Collapse } from '../../lib';
+
+# Alert
+
+```javascript
+import Alert from 'craigponent-library/dist/Alert';
+```
+
+Alerts are to assist communication between the user and the UI
+
+## Properties
+
+<Props of={Alert} />
+
+## Colors
+* You can pass in anything with the children prop or use the title, description props for auto sizing
+
+<Playground>
+  <Alert
+    onClose={() => {}}
+    color="primary"
+    description="We are only accepting limit orders that are good until the close of market."
+    title="Market Hours 9:30am - 4:00pm EST"
+  />
+  <Alert
+    color="success"
+    description="We are only accepting limit orders that are good until the close of market."
+    title="Market Hours 9:30am - 4:00pm EST"
+  />
+  <Alert
+    color="danger"
+    description="We are only accepting orders.."
+    title="Market Hours 9:30am - 4:00pm EST"
+  />
+</Playground>
+
+## Controlled Alert
+* Wrap a `Fade` component around for a smooth transition
+* You can also Wrap a `Collapse` component around that `Fade` for a smoother transition
+
+<Playground>
+  <Component
+    initialState={{
+      isOpen1: true,
+      isOpen2: true,
+      isOpen3: true,
+      fade1: true,
+      fade2: true,
+    }}
+  >
+    {({ setState, state }) => (
+      <>
+        <Alert
+          color="primary"
+          isOpen={state.isOpen1}
+          onClose={() => setState({ isOpen1: false})}
+        >
+          This primary alert can be closed/controlled
+        </Alert>
+        <Fade in={state.fade1} duration={300} onExited={() => setState({ isOpen2: false })}>
+          <Alert
+            color="success"
+            isOpen={state.isOpen2}
+            onClose={() => setState({ fade1: false })}
+          >
+            This success alert has a fade animation
+          </Alert>
+        </Fade>
+        <Collapse isOpen={state.isOpen3}>
+          <Fade in={state.fade2} duration={300} onExited={() => setState({ isOpen3: false })}>
+            <Alert
+              color="danger"
+              onClose={() => setState({ fade2: false })}
+            >
+              This danger alert has a fade and collapse animation
+            </Alert>
+          </Fade>
+        </Collapse>
+        <Button
+          onClick={() => setState({
+            isOpen1: true,
+            isOpen2: true,
+            isOpen3: true,
+            fade1: true,
+            fade2: true
+          })}
+        >
+          Refresh
+        </Button>
+      </>
+    )}
+  </Component>
+</Playground>

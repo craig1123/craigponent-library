@@ -1,0 +1,37 @@
+@import "../variables.scss";
+
+.box {
+  background-color: $transparent;
+  border-radius: 5px;
+  box-shadow: 0 0 8px 1px rgba(64, 67, 69, .17);
+  color: $gray-10;
+  margin-bottom: 20px;
+  padding: 20px;
+  position: relative;
+}
+
+.success {
+  border-top: 3px solid $main-green;
+}
+
+.danger {
+  border-top: 3px solid $red-accent;
+}
+
+.primary {
+  border-top: 3px solid $blue-accent;
+}
+
+.warning {
+  border-top: 3px solid $purple-accent;
+}
+
+.light {
+  border-top: 3px solid $gray-7;
+}
+
+.dark {
+  background-color: $black;
+  box-shadow: 0 0 8px 1px rgba($white, .17);
+  color: $white;
+}

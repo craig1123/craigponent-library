@@ -1,0 +1,78 @@
+---
+name: Radio
+menu: Components
+route: /components-radio
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row, Box } from './helpers';
+import { Radio } from '../../lib';
+
+# Radio
+
+```javascript
+import Radio from 'craigponent-library/dist/Radio';
+```
+
+## Properties
+
+<Props of={Radio} />
+
+## Basic usage
+
+<Playground>
+  <Box style={{ background: '#fff', color: '#545658', padding: '20px' }} minHeight={50}>
+    <Radio label="Light" name="light-radio" />
+    <Radio label="Radios" name="light-radio" />
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Box style={{ background: '#000', color: '#fff', padding: '20px' }} minHeight={50}>
+    <Radio
+      label="Radios"
+      name="this-radio"
+      required
+      styleMode="dark"
+    />
+    <Radio
+      label="Dark"
+      name="this-radio"
+      required
+      styleMode="dark"
+    />
+  </Box>
+</Playground>
+
+## Validations
+
+<Playground>
+  <Box style={{ background: '#000', color: '#fff', padding: '20px' }} minHeight={50}>
+    <Radio
+      label="I'm ambitious. I'm a Slytherin"
+      name="radio"
+      styleMode="dark"
+      valid
+    />
+    <Radio
+      label="I'm smart. I'm a Ravenclaw"
+      name="radio"
+      styleMode="dark"
+      warning
+    />
+    <Radio
+      label="I'm courageous. I'm a Gryffindor"
+      name="radio"
+      styleMode="dark"
+      invalid
+    />
+    <Radio
+      label="I'm a hufflepuff"
+      name="radio"
+      styleMode="dark"
+    />
+  </Box>
+</Playground>

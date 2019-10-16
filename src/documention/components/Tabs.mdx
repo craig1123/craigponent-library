@@ -1,0 +1,142 @@
+---
+name: Tabs
+menu: Components
+route: /components-tabs
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Tabs, TabItem } from '../../lib';
+import CustomTabs from './helpers/CustomTabs';
+import { Box } from './helpers';
+import TabItemExample from './helpers/TabItemExample';
+
+# Tabs
+
+```javascript
+import Tabs from 'craigponent-library/dist/Tabs';
+```
+
+Tabs are for showing Navigation
+
+## Tab Properties
+
+<Props of={Tabs} />
+
+## Basic Usage
+
+<Playground>
+  <Box style={{ backgroundColor: 'white', padding: '20px' }}>
+    <Component initialState={{ activeTab: 0 }}>
+      {({ setState, state }) => {
+        const tabs = ["Portfolio", "Market", "History", "Account"];
+        return (
+          <>
+            <Tabs
+              activeTab={state.activeTab}
+              onClick={(tab) => setState({ activeTab: tab })}
+              style={{ marginBottom: '20px' }}
+              tabs={tabs}
+            />
+            <div style={{ color: 'black' }}>Active tab is {tabs[state.activeTab]}</div>
+          </>
+        )
+      }}
+    </Component>
+  </Box>
+</Playground>
+
+## Dark mode
+
+<Playground>
+  <Component initialState={{ activeTab: 0 }}>
+    {({ setState, state }) => {
+      const tabs = ["Portfolio", "Market", "History", "Account"];
+      return (
+        <>
+          <Tabs
+            activeTab={state.activeTab}
+            onClick={(tab) => setState({ activeTab: tab })}
+            style={{ marginBottom: '20px' }}
+            tabs={tabs}
+            styleMode="dark"
+          />
+          <div>Active tab is {tabs[state.activeTab]}</div>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Custom Classes
+
+* See the documentation/components/helpers folder to see how this CSS is done
+
+<Playground>
+  <Component initialState={{ activeTab: 0 }}>
+    {({ setState, state }) => {
+      const tabs = ["Buy", "Sell"];
+      return (
+        <>
+          <CustomTabs
+            activeTab={state.activeTab}
+            onClick={(tab) => setState({ activeTab: tab })}
+            style={{ marginBottom: '20px' }}
+            tabs={tabs}
+          />
+          <div>Active tab index is {state.activeTab}</div>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Using a custom `<TabItem />`
+
+```javascript
+import Tabs from 'craigponent-library/dist/Tabs';
+import TabItem from 'craigponent-library/dist/TabItem';
+```
+
+## TabItem Properties
+
+<Props of={TabItem} />
+
+<Playground>
+  <Component initialState={{ activeTab: 0 }}>
+    {({ setState, state }) => {
+      const { activeTab } = state;
+      return (
+        <>
+          <Tabs
+            activeTab={activeTab}
+            styleMode="dark"
+          >
+            <TabItem
+              href="http://example.com"
+              isActiveTab={activeTab === 0}
+              styleMode="dark"
+            >
+              Link to Example
+            </TabItem>
+            <TabItem
+              isActiveTab={activeTab === 1}
+              onClick={() => setState({ activeTab: 1 })}
+              styleMode="dark"
+            >
+              Don't click on that link
+            </TabItem>
+          </Tabs>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+* If you want the green indicator at the bottom, you'll need to pass an
+array container refs of each tabItem using the `tabRefs` prop
+* See the documentation/components/helpers/TabItemExample.jsx file to see how this is done
+
+<Playground>
+  <TabItemExample />
+</Playground>

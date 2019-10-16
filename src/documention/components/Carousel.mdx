@@ -1,0 +1,127 @@
+---
+name: Carousel
+menu: Components
+route: /components-carousel
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Carousel } from '../../lib';
+import { CurrencyDollar, AuthorizedUser, Bank } from '../../lib/icons';
+import CarouselInner from './helpers/CarouselInner';
+
+# Carousel
+
+## Install
+
+React Swipeable is needed for Carousel
+
+```bash
+yarn add react-swipeable
+```
+
+```javascript
+import Carousel from 'craigponent-library/dist/Carousel';
+```
+
+## Properties
+
+<Props of={Carousel} />
+
+## Basic usage
+
+<Playground>
+  <Component>
+    {({ setState, state }) => {
+      const carouselItems = [
+        {
+          icon: <CurrencyDollar fillColor="#000" />,
+          title: 'Deposit Money',
+          body: 'Before you can start investing, you\'ll transfer or contribute funds into your account.',
+          linkTitle: 'Wire Transfer',
+          action: () => {},
+        },
+        {
+          icon: <AuthorizedUser fillColor="#000" />,
+          title: 'Pending Signatures',
+          body: 'All authorized users must accept their invites and sign the application before we can open the account.',
+        },
+        {
+          icon: <Bank fillColor="#000" />,
+          title: 'Link Bank Account',
+          body: 'Setup payments from checking, savings, credit cards.',
+        },
+      ];
+      const items = [];
+      carouselItems.map(item => {
+        items.push(
+          <CarouselInner key={item.title} {...item} buttonPosition='middle' />
+        );
+      });
+      const responsive = {
+        0: {
+            items: 1
+        },
+        1024: {
+            items: 3
+        }
+      };
+      return (
+        <>
+          <Carousel autoPlay responsive={responsive} arrowPosition='middle'>
+            {items}
+          </Carousel>
+        </>
+      )
+    }}
+  </Component>
+</Playground>
+
+## Finite
+
+<Playground>
+  <Component>
+    {({ setState, state }) => {
+      const carouselItems = [
+        {
+          icon: <CurrencyDollar fillColor="#000" />,
+          title: 'Deposit Money',
+          body: 'Before you can start investing, you\'ll transfer or contribute funds into your account.',
+          linkTitle: 'Wire Transfer',
+          action: () => {},
+        },
+        {
+          icon: <AuthorizedUser fillColor="#000" />,
+          title: 'Pending Signatures',
+          body: 'All authorized users must accept their invites and sign the application before we can open the account.',
+        },
+        {
+          icon: <Bank fillColor="#000" />,
+          title: 'Link Bank Account',
+          body: 'Setup payments from checking, savings, credit cards.',
+        },
+      ];
+      const items = [];
+      carouselItems.map(item => {
+        items.push(
+          <CarouselInner key={item.title} {...item} styleMode={'dark'} />
+        );
+      });
+      const responsive = {
+        0: {
+            items: 1
+        },
+        1024: {
+            items: 3
+        }
+      };
+      return (
+        <>
+          <Carousel infinite={false} styleMode={'dark'} responsive={responsive}>
+            {items}
+          </Carousel>
+        </>
+      )
+    }}
+  </Component>
+</Playground>

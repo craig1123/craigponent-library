@@ -1,0 +1,144 @@
+@import "./../variables";
+
+.document-upload {
+  display: flex;
+  flex: 0 0 48%;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  input {
+    max-width: 100%;
+  }
+}
+
+.uploaded-doc-wrapper {
+  height: 34px;
+  margin-right: 25px;
+}
+
+.drop-file-text {
+  color: $gray-12;
+}
+
+.image-upload {
+  align-items: center;
+  background-color: $gray-1;
+  border: dashed 2px $gray-5;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  position: relative;
+}
+
+.box-upload {
+  height: 165px;
+  justify-content: center;
+}
+
+.thumbnail-upload {
+  justify-content: space-between;
+  min-height: 54px;
+  padding: 0 10px 0 20px;
+
+  p {
+    color: $gray-7;
+    font-size: 14px;
+  }
+}
+
+.active {
+  background-color: $gray-2;
+}
+
+.image-upload.error {
+  border-color: $red-accent;
+}
+
+.label {
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: normal;
+  min-height: 15px;
+}
+
+.svg-button {
+  align-items: center;
+  background-color: $white;
+  border: solid 1px $gray-5;
+  border-radius: 3px;
+  color: $gray-9;
+  display: flex;
+  margin: 0;
+  min-height: 34px;
+  padding: 0 15px;
+
+  svg {
+    padding-right: 9px;
+  }
+}
+
+.clear-image {
+  align-items: center;
+  background: $white;
+  border: 1px solid $gray-5;
+  border-radius: 30px;
+  cursor: pointer;
+  display: flex;
+  font-size: 28px;
+  height: 30px;
+  justify-content: center;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  width: 30px;
+}
+
+.upload-count {
+  left: 10px;
+  position: absolute;
+  top: 10px;
+}
+
+.set-preview-button {
+  background: $transparent;
+  border: none;
+  color: $gray-7;
+  cursor: pointer;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.image-name {
+  color: $gray-7;
+  height: 20px;
+  margin-top: 5px;
+}
+
+.image-name.error {
+  color: $red-accent;
+}
+
+// Dark Mode
+.dark.image-upload {
+  background-color: $gray-14;
+  border-color: $gray-7;
+}
+
+.dark.active {
+  background-color: $gray-13;
+}
+
+.dark.drop-file-text {
+  color: $gray-2;
+}

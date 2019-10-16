@@ -1,0 +1,60 @@
+---
+name: Collapse
+menu: Components
+route: /components-collapse
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Collapse, UncontrolledCollapse, Button } from '../../lib';
+import { DownCaret } from '../../lib/icons';
+import { Box } from './helpers';
+
+# Collapse
+
+Collapse creates a smooth transition to hide and show content
+
+## Install
+
+React transition group is needed for the collapse
+
+```bash
+yarn add react-transition-group
+```
+
+```javascript
+import Collapse from 'craigponent-library/dist/Collapse';
+```
+or
+```javascript
+import UncontrolledCollapse from 'craigponent-library/dist/UncontrolledCollapse';
+```
+
+## Properties
+
+#### Collapse
+
+<Props of={Collapse} />
+
+#### UncontrolledCollapse
+<Props of={UncontrolledCollapse} />
+
+
+## Controlled Collapse
+
+<Playground>
+  <Box>
+    <Component initialState={{ isOpen: false }}>
+      {({ setState, state }) => {
+        return (
+        <>
+            <Button onClick={() => setState({ isOpen: !state.isOpen })}>Click Me</Button>
+            <Collapse isOpen={state.isOpen}>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Collapse>
+            </>
+        )
+      }}
+    </Component>
+  </Box>
+</Playground>

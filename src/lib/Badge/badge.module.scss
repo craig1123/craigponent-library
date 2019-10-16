@@ -1,0 +1,52 @@
+@import "./../variables";
+
+.badge {
+  border-radius: .25rem;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 1;
+  padding: 5px 10px;
+  text-align: center;
+  vertical-align: initial;
+  white-space: nowrap;
+}
+
+.badge-primary {
+  background-color: rgba($blue-accent, .2);
+  color: $blue-accent;
+}
+
+.badge-success {
+  background-color: rgba($main-green, .2);
+  color: $main-green;
+}
+
+.badge-danger {
+  background-color: rgba($red-accent, .2);
+  color: $red-accent;
+}
+
+.badge-warning {
+  background-color: rgba($purple-accent, .2);
+  color: $purple-accent;
+}
+
+.badge-info {
+  background-color: rgba($blue-accent, .2);
+  color: $blue-accent;
+}
+
+.badge-light {
+  background-color: rgba($gray-10, .2);
+  color: $gray-10;
+}
+
+.badge-dark {
+  background-color: $gray-12;
+  color: $gray-1;
+}
+
+.no-background {
+  background-color: $transparent;
+}

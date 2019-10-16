@@ -1,0 +1,96 @@
+@import "./../variables";
+
+.radio-wrappers {
+  display: block;
+  margin-bottom: 5px;
+  padding-left: 36px;
+  position: relative;
+}
+
+.form-radio {
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-left: -32px;
+  margin-top: 0px;
+  padding: 0;
+  position: absolute;
+
+  &::after {
+    background-color: $white;
+    border: 2px solid $gray-5;
+    border-image: initial;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+
+  &::after,
+  &:checked::after {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    left: -4px;
+    position: relative;
+    top: 0px;
+    visibility: visible;
+    width: 20px;
+  }
+
+  &:checked::after {
+    background-color: $gray-10;
+    border: 2px solid $gray-10;
+    border-image: initial;
+    border-radius: 50%;
+    box-shadow: 0px 0px 0px 3px $white inset;
+  }
+}
+
+input.valid {
+  &:checked::after {
+    background-color: $main-green !important; // stylelint-disable-line
+    border: 2px solid $main-green !important; // stylelint-disable-line
+  }
+}
+
+input.invalid {
+  &:checked::after {
+    background-color: $red-accent !important; // stylelint-disable-line
+    border: 2px solid $red-accent !important; // stylelint-disable-line
+  }
+}
+
+input.warning {
+  &:checked::after {
+    background-color: $yellow !important; // stylelint-disable-line
+    border: 2px solid $yellow !important; // stylelint-disable-line
+  }
+}
+
+// labels
+.form-check-label {
+  cursor: pointer;
+  font-size: 14px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: normal;
+  margin-bottom: 0;
+  min-height: 15px;
+}
+
+.dark.form-radio {
+  &::after {
+    background-color: $gray-15;
+    border: 2px solid $gray-9;
+  }
+
+  &:checked::after {
+    background-color: $blue-accent;
+    border: 2px solid $blue-accent;
+    box-shadow: 0px 0px 0px 3px $gray-15 inset;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+}

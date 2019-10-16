@@ -1,0 +1,127 @@
+---
+name: Button
+menu: Components
+route: /components-button
+---
+
+import { Playground, Props } from 'docz';
+import { Button } from '../../lib';
+import { Row } from './helpers';
+
+# Button
+
+```javascript
+import Button from 'craigponent-library/dist/Button';
+```
+
+Buttons make common actions more obvious and help users more easily perform them. Buttons use labels and sometimes icons to communicate the action that will occur when the user touches them.
+
+## Properties
+
+<Props of={Button} />
+
+## Button Types
+
+<Playground>
+  <Row>
+    <h3 style={{ color: '#389BFF' }}>Light</h3>
+    <h3 style={{ color: '#389BFF' }}>Dark</h3>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="default" styleMode="light">Default</Button>
+    <Button size="lg" btnType="default" styleMode="dark">Default</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="link" styleMode="light">link</Button>
+    <Button size="lg" btnType="link" styleMode="dark">link</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="destructive" styleMode="light">destructive</Button>
+    <Button size="lg" btnType="destructive" styleMode="dark">destructive</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="gray" styleMode="light">gray</Button>
+    <Button size="lg" btnType="gray" styleMode="dark">gray</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="primary" styleMode="light">Primary</Button>
+    <Button size="lg" btnType="primary" styleMode="dark">Primary</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="success" styleMode="light">Success</Button>
+    <Button size="lg" btnType="success" styleMode="dark">Success</Button>
+  </Row>
+  <Row>
+    <Button size="lg" btnType="transparent" styleMode="light">transparent</Button>
+    <Button size="lg" btnType="transparent" styleMode="dark">transparent</Button>
+  </Row>
+</Playground>
+
+## Size
+
+<Playground>
+  <Row>
+    <Button btnType="primary" size="lg">Large Button</Button>
+    <Button btnType="link" size="lg">
+      <a href="https://www.google.com" target="blank" rel="noopener noreferrer">Large Link</a>
+    </Button>
+  </Row>
+  <Row>
+    <Button btnType="primary" size="md">
+      Defult Button
+    </Button>
+    <Button btnType="link" size="md">
+      <a href="https://www.google.com" target="blank" rel="noopener noreferrer">Default Link</a>
+    </Button>
+  </Row>
+  <Row>
+    <Button btnType="primary" size="sm">small</Button>
+    <Button btnType="link" size="sm">
+      <a href="https://www.google.com" target="blank" rel="noopener noreferrer">small</a>
+    </Button>
+  </Row>
+</Playground>
+
+## Rounded and Loading
+
+<Playground>
+  <Row>
+    <Button size="lg" btnType="transparent" rounded noMargin>Rounded</Button>
+    <Button size="lg" btnType="success" styleMode="dark" loading noMargin>Loading</Button>
+  </Row>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <Row>
+    <h3 style={{ color: '#389BFF' }}>Light</h3>
+    <h3 style={{ color: '#389BFF' }}>Dark</h3>
+  </Row>
+  <Row>
+    <Button size="lg" disabled btnType="primary" styleMode="light">Disabled</Button>
+    <Button size="lg" disabled btnType="primary" styleMode="dark">Disabled</Button>
+  </Row>
+</Playground>
+
+## Block
+
+<Playground>
+  <Row>
+    <Button
+      size="lg"
+      block
+      btnType="success"
+      href="https://www.google.com/"
+    >
+      Website
+    </Button>
+    <Button
+      size="lg"
+      block
+      btnType="success"
+    >
+      Continue
+    </Button>
+  </Row>
+</Playground>

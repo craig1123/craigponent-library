@@ -1,0 +1,48 @@
+---
+name: Card
+menu: Components
+route: /components-card
+---
+
+import { Playground, Props } from 'docz';
+import { Card } from '../../lib';
+
+# Card
+
+```javascript
+import Card from 'craigponent-library/dist/Card';
+```
+
+## Properties
+
+<Props of={Card} />
+
+## Basic Usage
+
+<Playground>
+  <div style={{ backgroundColor: "#ffffff", padding: '20px' }}>
+    <Card title="Title">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </Card>
+  </div>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Card title={<div style={{ fontSize: 26, fontWeight: 500}}>Big Title</div>} styleMode="dark">
+    <div style={{ paddingBottom: 15 }}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
+      ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip 
+      ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate 
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </div>
+  </Card>
+</Playground>

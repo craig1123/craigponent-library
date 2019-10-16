@@ -1,0 +1,111 @@
+---
+name: Dropdown
+menu: Components
+route: /components-dropdown
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row, Box } from './helpers';
+import { Dropdown, Button } from '../../lib';
+
+# Dropdown
+
+```javascript
+import Dropdown from 'craigponent-library/dist/Dropdown';
+```
+
+## Properties
+
+* Dropdown also inherits all of Tooltip props
+
+<Props of={Dropdown} />
+
+## Basic usage
+
+<Playground style={{ backgroundColor: '#fff'}}>
+  <Box style={{ background: "#fff", paddingTop: '20px' }} minHeight={80}>
+  <Component initialState={{ value: 'ALL' }}>
+    {({ setState, state }) => (
+      <Row>
+        <Dropdown
+          onChange={(option, e) => setState({ value: option.name })}
+          options={[
+            { name: 'ALL', value: 'ALL' },
+            { name: 'Cash Deposits', value: 'FIAT_DEPOSIT' },
+            { name: 'Cash Withdrawals', value: 'FIAT_WITHDRAWAL', active: true },
+            { name: 'separator-1', value: 'SEPARATOR' },
+            { name: 'Token Deposits', value: 'TOKEN_DEPOSIT', disabled: true },
+            { name: 'Token Withdrawals', value: 'TOKEN_WITHDRAWAL' },
+          ]}
+          value={state.value}
+        />
+      </Row>
+    )}
+  </Component>
+  </Box>
+</Playground>
+
+<br></br>
+
+## Dark Mode
+
+<Playground>
+  <Component initialState={{ value: 'ALL' }}>
+    {({ setState, state }) => (
+      <Row>
+        <Dropdown
+          onChange={(option, e) => setState({ value: option.name })}
+          options={[
+            { name: 'ALL', value: 'ALL' },
+            { name: 'Cash Deposits', value: 'FIAT_DEPOSIT' },
+            { name: 'Cash Withdrawals', value: 'FIAT_WITHDRAWAL', active: true },
+            { name: 'separator-1', value: 'SEPARATOR' },
+            { name: 'Token Deposits', value: 'TOKEN_DEPOSIT', disabled: true },
+            { name: 'Token Withdrawals', value: 'TOKEN_WITHDRAWAL' },
+          ]}
+          styleMode="dark"
+          value={state.value}
+        />
+      </Row>
+    )}
+  </Component>
+</Playground>
+
+<br></br>
+<br></br>
+
+## Customizable Children
+
+<Playground>
+  <Component initialState={{ value: 'ALL' }}>
+    {({ setState, state }) => (
+      <Row>
+        <Dropdown
+          caret={false}
+          onChange={(option, e) => setState({ value: option.name })}
+          arrow
+          options={[
+            { name: 'Set as Preferred', value: 0, disabled: true },
+            { name: 'Remove', value: 1 },
+            { name: 'Settings', value: 2 },
+          ]}
+          position="bottom-left"
+          value={state.value}
+          offset="40px"
+        >
+          <Button
+            btnType="primary"
+            size="lg"
+          >
+            ...
+          </Button>
+        </Dropdown>
+      </Row>
+    )}
+  </Component>
+</Playground>
+
+<br></br>
+<br></br>
+<br></br>

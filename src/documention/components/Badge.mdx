@@ -1,0 +1,77 @@
+---
+name: Badge
+menu: Components
+route: /components-badge
+---
+
+import { Playground, Props } from 'docz';
+import { Badge } from '../../lib';
+import { Row } from './helpers';
+
+# Badge
+
+```javascript
+import Badge from 'craigponent-library/dist/Badge';
+```
+
+Badges help visually categorize information
+
+## Properties
+
+<Props of={Badge} />
+
+## Badge Types
+* hidden if no text
+
+<Playground>
+  <Row>
+    <Badge type="primary" style={{ marginTop: '20px' }}></Badge>
+  </Row>
+  <Row>
+    <Badge type="primary" style={{ marginTop: '20px' }}>primary</Badge>
+  </Row>
+  <Row>
+    <Badge type="success" style={{ marginTop: '20px' }}>success</Badge>
+  </Row>
+  <Row>
+    <Badge type="danger" style={{ marginTop: '20px' }}>danger</Badge>
+  </Row>
+  <Row>
+    <Badge type="warning" style={{ marginTop: '20px' }}>warning</Badge>
+  </Row>
+  <Row>
+    <Badge type="info" style={{ marginTop: '20px' }}>info</Badge>
+  </Row>
+  <Row>
+    <Badge type="light" style={{ marginTop: '20px' }}>light</Badge>
+  </Row>
+  <Row>
+    <Badge type="dark" style={{ marginTop: '20px' }}>dark</Badge>
+  </Row>
+</Playground>
+
+## No Background
+
+<Playground>
+  <Row>
+    <Badge noBackground type="primary" style={{ marginTop: '20px' }}>primary</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="success" style={{ marginTop: '20px' }}>success</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="danger" style={{ marginTop: '20px' }}>danger</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="warning" style={{ marginTop: '20px' }}>warning</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="info" style={{ marginTop: '20px' }}>info</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="light" style={{ marginTop: '20px' }}>light</Badge>
+  </Row>
+  <Row>
+    <Badge noBackground type="dark" style={{ marginTop: '20px' }}>dark</Badge>
+  </Row>
+</Playground>

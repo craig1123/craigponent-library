@@ -1,0 +1,76 @@
+---
+name: NumberInput
+menu: Components
+route: /components-numberInput
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row } from './helpers';
+import { Input, NumberInput } from '../../lib';
+import { User } from '../../lib/icons';
+
+# NumberInput
+
+```javascript
+import NumberInput from 'craigponent-library/dist/NumberInput';
+```
+
+
+## NumberInput Properties
+
+<Props of={NumberInput} />
+
+## Input Properties
+* You can pass these down from NumberInput
+* Note: If you want to use a ref, just pass down the prop "ref" instead of "innerRef". It is forwarded on to the input
+
+<Props of={Input} />
+
+## NumberInput
+
+<Playground>
+  <NumberInput
+    name="price"
+    label="Please enter a number"
+    leftIcon="$"
+    placeholder="0.00"
+    styleMode="dark"
+    size="lg"
+  />
+  <Component initialState={{ value: 55555 }}>
+    {({ setState, state }) => (
+      <NumberInput
+        onChange={(value) => setState({ value: value.replace(/,/g, "") })}
+        name="price2"
+        label="Controlled input"
+        leftIcon="$"
+        placeholder="0.00"
+        styleMode="dark"
+        size="lg"
+        value={state.value}
+      />
+    )}
+    </Component>
+</Playground>
+
+## Scale
+
+<Playground>
+  <NumberInput
+    label="Scale 0"
+    leftIcon="$"
+    placeholder="0.00"
+    scale={0}
+    styleMode="dark"
+    size="lg"
+  />
+  <NumberInput
+    label="Scale 3"
+    leftIcon="$"
+    placeholder="0.00"
+    scale={3}
+    styleMode="dark"
+    size="lg"
+  />
+</Playground>

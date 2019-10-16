@@ -1,3 +1,0 @@
-_auth = ${ARTIFACTORY_REPO_USER}:${ARTIFACTORY_REPO_PASS}
-email = devops@craig.com
-always-auth = true

@@ -1,0 +1,59 @@
+/* stylelint-disable declaration-no-important */
+
+@import '../variables.scss';
+
+.tooltip-wrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 98;
+}
+
+.tooltip-arrow {
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  height: 0;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  transform-origin: top;
+  width: 0;
+  will-change: transform;
+  z-index: 100;
+}
+
+.tip-container {
+  backface-visibility: hidden;
+  border-radius: 4px;
+  box-sizing: content-box;
+  display: table;
+  font-family: 'Source Sans Pro', 'Segoe UI', -apple-system, BlinkMacSystemFont,
+    Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-top: 25px;
+  padding: 0.5em 1em;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  transform-origin: top;
+  white-space: nowrap;
+  will-change: transform;
+  z-index: 99;
+
+  &.dark {
+    background-color: $gray-15 !important;
+    color: $gray-4 !important;
+  }
+
+  &.light {
+    background-color: $gray-3 !important;
+    color: $gray-10 !important;
+  }
+}
+
+.gap {
+  height: 20px;
+  margin-top: 10px;
+  position: absolute;
+  width: 100%;
+}

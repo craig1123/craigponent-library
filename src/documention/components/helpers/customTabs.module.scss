@@ -1,0 +1,24 @@
+.tab-class {
+  border-bottom: 1px solid #282828;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  font-size: 16px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 11.5px 20px;
+  text-align: center;
+  width: 150px;
+
+  &:hover {
+    background-color: #181818; // stylelint-disable-line
+    color: #fff; // stylelint-disable-line
+  }
+}
+
+.active-tab-class {
+  background-color: #181818; // stylelint-disable-line
+  color: #fff; // stylelint-disable-line
+}

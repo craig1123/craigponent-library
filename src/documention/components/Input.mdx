@@ -1,0 +1,301 @@
+---
+name: Input
+menu: Components
+route: /components-input
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row, Box } from './helpers';
+import { Input, NumberInput, Button, Loading } from '../../lib';
+import { User } from '../../lib/icons';
+
+# Input
+
+```javascript
+import Input from 'craigponent-library/dist/Input';
+```
+
+
+## Properties
+
+<Props of={Input} />
+
+## Basic usage
+
+<Playground>
+  <Box style={{ background: "#fff", color: '#545658', padding: '20px' }} minHeight={80}>
+    <Input name="basic" placeholder="basic input" label="Basic Input" />
+  </Box>
+</Playground>
+
+## styleMode Dark
+
+<Playground>
+  <Input name="dark1" label="dark" placeholder="dark" styleMode="dark" />
+</Playground>
+
+## Size
+
+<Playground>
+  <Input name="sm" label="sm" placeholder="sm" styleMode="dark" size="sm" />
+  <Input name="md" label="md" placeholder="md" styleMode="dark" size="md" />
+  <Input name="lg" label="lg" placeholder="lg" styleMode="dark" size="lg" />
+</Playground>
+
+## NumberInput
+
+<Playground>
+  <NumberInput
+    name="price"
+    label="Please enter a number"
+    leftIcon="$"
+    placeholder="0.00"
+    styleMode="dark"
+    size="lg"
+  />
+  <Component initialState={{ value: 55555 }}>
+    {({ setState, state }) => (
+      <NumberInput
+        onChange={(value) => setState({ value: value.replace(/,/g, "") })}
+        name="price2"
+        label="Controlled input"
+        leftIcon="$"
+        placeholder="0.00"
+        styleMode="dark"
+        size="lg"
+        value={state.value}
+      />
+    )}
+    </Component>
+</Playground>
+
+## Validation
+
+<Playground>
+  <Input
+    name="valid"
+    label="valid"
+    leftIcon="$"
+    placeholder="valid"
+    styleMode="dark"
+    validText="Money is accepted"
+  />
+  <Input
+    name="invalid"
+    label="invalid"
+    placeholder="invalid"
+    styleMode="dark"
+    warningText="invalidText will override this"
+    invalidText="Email address is already registered."
+  />
+  <Input
+    name="warning"
+    label="warning"
+    placeholder="warning"
+    styleMode="dark"
+    warningText="Are you sure?"
+  />
+</Playground>
+
+## Icons
+
+<Playground>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      size="sm"
+      label="Left Icon sm"
+      leftIcon={<User fillColor="#fff" width="18" />}
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      size="sm"
+      label="Right Icon sm"
+      rightIcon={<User fillColor="#fff" width="18" />}
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+  </Row>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      size="sm"
+      leftIcon="$"
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      size="sm"
+      rightIcon="$"
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+  </Row>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      label="Left Icon md"
+      leftIcon={<User width="20" fillColor="#fff" />}
+      placeholder="Icons here"
+      size="md"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      label="Right Icon md"
+      rightIcon={<User width="20" fillColor="#fff" />}
+      placeholder="Icons here"
+      size="md"
+      styleMode="dark"
+    />
+  </Row>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      leftIcon="$"
+      placeholder="Icons here"
+      size="md"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      rightIcon="$"
+      placeholder="Icons here"
+      size="md"
+      styleMode="dark"
+    />
+  </Row>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      label="Left Icon lg"
+      leftIcon={<User width="20" fillColor="#fff" />}
+      placeholder="Icons here"
+      size="lg"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      label="Right Icon lg"
+      rightIcon={<User width="20" fillColor="#fff" />}
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+  </Row>
+  <Row>
+    <Input
+      style={{ minWidth: '250px' }}
+      leftIcon="$"
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+    <Input
+      style={{ minWidth: '250px' }}
+      rightIcon={<Loading color="#fff" />}
+      placeholder="Icons here"
+      styleMode="dark"
+    />
+  </Row>
+</Playground>
+
+## Add-ons
+
+<Playground>
+  <Input
+    label="leftAddOn"
+    name="leftAddOn"
+    leftAddOn="facebook.com/"
+    placeholder="Name"
+    styleMode="dark"
+  />
+  <Input
+    label="rightAddOn"
+    name="rightAddOn"
+    rightAddOn=".com"
+    placeholder="url"
+    styleMode="dark"
+  />
+</Playground>
+
+## Different Types
+
+<Playground>
+  <form>
+    <Button type="submit" btnType="success">Submit</Button>
+    <Input
+      label="Select"
+      placeholder="Select"
+      name="select"
+      required
+      type="select"
+      styleMode="dark"
+    >
+      <option value="yes">yes</option>
+      <option value="no">no</option>
+      <option value="maybe">maybe</option>
+      <option value="unknown">unknown</option>
+    </Input>
+    <label>Toggle</label>
+    <Component initialState={{ checked: true }}>
+      {({ setState, state }) => (
+        <Input
+          type="toggle"
+          name="toggle"
+          checked={state.checked}
+          onChange={() => setState({ checked: !state.checked })}
+        />
+      )}
+      </Component>
+    <Input
+      label="Dark Checkbox"
+      styleMode="dark"
+      type="checkbox"
+    />
+    <div style={{ background: '#fff', color: '#545658', paddingLeft: '5px' }}>
+      <Input
+        label="Light Checkbox"
+        type="checkbox"
+      />
+    </div>
+    <Input
+      label="Radios"
+      name="this-radio"
+      required
+      styleMode="dark"
+      type="radio"
+    />
+    <Input
+      label="Dark"
+      name="this-radio"
+      required
+      styleMode="dark"
+      type="radio"
+    />
+    <div style={{ background: '#fff', color: '#545658', paddingLeft: '5px' }}>
+      <Input
+        label="Light"
+        name="this-radio"
+        required
+        type="radio"
+      />
+    </div>
+    <Input
+      label="textarea"
+      placeholder="basic textarea"
+      required
+      rows={5}
+      styleMode="dark"
+      type="textarea"
+    />
+    <Input
+      label="disabled"
+      disabled
+      placeholder="disabled"
+      styleMode="dark"
+    />
+  </form>
+</Playground>

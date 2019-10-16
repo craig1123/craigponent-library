@@ -1,0 +1,72 @@
+---
+name: ToastNotification
+menu: Components
+route: /components-toastNotification
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Button, ToastNotification } from '../../lib';
+import { Row } from './helpers';
+
+# ToastNotification
+
+```javascript
+import ToastNotification from 'craigponent-library/dist/ToastNotification';
+```
+
+ToastNotification are to assist communication between the user and the service
+
+### Best practices
+- Design will define the best practices here
+
+## Properties
+
+<Props of={ToastNotification} />
+
+## Basic usage
+
+<Playground>
+  <Component
+    initialState={{
+      toasts: [{
+        id: '0',
+        element: 'This is a primary toast which gives you basic information.',
+        closeButton: true,
+        autoClose: false,
+        position: 'top_center',
+        status: 'primary',
+      }]
+    }}
+  >
+    {({ setState, state }) => (
+      <div>
+      <ToastNotification
+        removeToastNotification={(toastId) => setState({
+          toasts: state.toasts.filter((toast) => toast.id !== toastId)
+        })}
+        toasts={state.toasts}
+      />
+      <Button
+        btnType="primary"
+        onClick={() => setState({
+        toasts: [
+          ...state.toasts,
+          {
+            id: state.toasts.length.toString(),
+            element: 'This is a primary toast which gives you basic information.',
+            autoClose: true,
+            closeButton: true,
+            position: 'top_center',
+            status: 'primary',
+            timer: 5000,
+          }
+        ]
+        })}
+      >
+        Add Toast
+      </Button>
+      </div>
+    )}
+  </Component>
+</Playground>

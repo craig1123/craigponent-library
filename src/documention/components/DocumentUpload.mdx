@@ -1,0 +1,55 @@
+---
+name: DocumentUpload
+menu: Components
+route: /components-documentUpload
+---
+
+import { Playground, Props } from 'docz';
+import { DocumentUpload } from '../../lib';
+import { Row } from './helpers';
+
+# DocumentUpload
+
+DocumentUpload facilitates uploading some form of media. Supports Dragging n dropping
+
+## Install
+
+react-dropzone is needed for DocumentUpload
+
+```bash
+yarn add react-dropzone
+```
+
+```bash
+import DocumentUpload from 'craigponent-library/dist/DocumentUpload';
+```
+
+
+## Properties
+
+<Props of={DocumentUpload} />
+
+## Basic Usage
+
+<Playground style={{ backgroundColor: 'white' }}>
+  <DocumentUpload />
+  <DocumentUpload styleType="thumbnail" accept=".csv" uploadPreview={false} />
+  <DocumentUpload styleType="thumbnail" accept=".doc, .docx, .pdf, image/jpeg, image/png" />
+  <DocumentUpload styleType="thumbnail" accept="text/csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" acceptText=".csv, .xlsx" />
+</Playground>
+
+## Dark mode
+
+<Playground>
+  <DocumentUpload
+    label="Box Upload Image"
+    styleMode="dark"
+    multiple
+  />
+  <DocumentUpload
+    styleType="thumbnail"
+    label="Thumbnail Upload Image"
+    styleMode="dark"
+    multiple
+  />
+</Playground>

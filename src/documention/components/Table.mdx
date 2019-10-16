@@ -1,0 +1,138 @@
+---
+name: Table
+menu: Components
+route: /components-table
+---
+
+import { Playground, Props } from 'docz';
+import { Table } from '../../lib';
+import { Box } from './helpers';
+import TableContent from './helpers/TableContent';
+
+# Table
+
+```javascript
+import Table from 'craigponent-library/dist/Table';
+```
+
+## Properties
+
+<Props of={Table} />
+
+## Basic Usage
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table>
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>
+
+## Bordered
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table bordered>
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table bordered styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>
+
+## fixedColumns
+
+* Each column has equal width
+* To have a column take up two boxes, do `colSpan={2}` on each `<td />` in the column. See date column
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table fixedColumns>
+        <TableContent fixedColumns />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table fixedColumns styleMode="dark">
+    <TableContent fixedColumns />
+  </Table>
+</Playground>
+
+## hover
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table hover>
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table hover styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>
+
+
+## Striped
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table striped>
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table striped styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>
+
+
+## Size Small
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table size="sm">
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table size="sm" styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>
+
+
+## Responsive
+
+<Playground>
+    <Box style={{ background: "#fff", color: '#000' }}>
+      <Table responsive bordered hover striped>
+        <TableContent />
+      </Table>
+    </Box>
+</Playground>
+
+<Playground>
+  <Table responsive bordered hover striped styleMode="dark">
+    <TableContent />
+  </Table>
+</Playground>

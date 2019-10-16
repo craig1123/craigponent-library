@@ -1,0 +1,135 @@
+---
+name: Select
+menu: Components
+route: /components-select
+---
+
+import { Playground, Props } from 'docz';
+import Component from 'react-component-component';
+import { Row, Box } from './helpers';
+import { Select } from '../../lib';
+
+# Select
+
+```javascript
+import Select from 'craigponent-library/dist/Select';
+```
+
+## Properties
+
+<Props of={Select} />
+
+## Basic usage
+
+<Playground>
+  <Box
+    style={{ background: '#fff', color: '#545658', padding: '20px' }}
+    minHeight={50}
+  >
+    <Select label="Light" name="light-select">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select label="Disabled" name="light-disabled" disabled>
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <Box
+    style={{ background: '#000', color: '#fff', padding: '20px' }}
+    minHeight={50}
+  >
+    <Select label="dark" name="dark-select" styleMode="dark">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select label="disabled" name="dark-disabled" disabled styleMode="dark">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  </Box>
+</Playground>
+
+## Size
+
+<Playground>
+  <Box
+    style={{ background: '#000', color: '#fff', padding: '20px' }}
+    minHeight={50}
+  >
+    <Select name="sm" label="sm" placeholder="sm" styleMode="dark" size="sm">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select name="md" label="md" placeholder="md" styleMode="dark" size="md">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select name="lg" label="lg" placeholder="lg" styleMode="dark" size="lg">
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  </Box>
+</Playground>
+
+## Validations
+
+<Playground>
+  <Box
+    style={{ background: '#000', color: '#fff', padding: '20px' }}
+    minHeight={50}
+  >
+    <Select
+      label="valid"
+      validText="I'm ambitious. I'm a Slytherin"
+      name="dark-select"
+      styleMode="dark"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select
+      label="warning"
+      warningText="I'm smart. I'm a Ravenclaw"
+      name="dark-select"
+      styleMode="dark"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select
+      label="invalid"
+      invalidText="I'm courageous. I'm a Gryffindor"
+      name="dark-select"
+      styleMode="dark"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+    <Select
+      label="formText"
+      formText="I'm a hufflepuff"
+      name="dark-select"
+      styleMode="dark"
+    >
+      <option value="1">Option 1</option>
+      <option value="2">Option 2</option>
+      <option value="3">Option 3</option>
+    </Select>
+  </Box>
+</Playground>

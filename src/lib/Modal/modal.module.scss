@@ -1,0 +1,168 @@
+@import "./../variables";
+
+.modal {
+  bottom: 0;
+  display: block;
+  left: 0;
+  outline: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1050;
+}
+
+.modal-dialog {
+  margin: 0.5rem auto;
+  pointer-events: none;
+  position: relative;
+  transform: translate(0, -50px);
+  transition: transform 0.3s ease-out;
+  width: auto;
+
+  @media (min-width: 576px) {
+    margin: 2.75rem auto;
+  }
+}
+
+.dialog-open {
+  transform: none;
+}
+
+.modal-dialog-centered {
+  align-items: center;
+  display: flex;
+
+  @media (min-width: 576px) {
+    min-height: calc(100% - (1.75rem * 2));
+  }
+}
+
+.modal-sm {
+  @media (min-width: 576px) {
+    max-width: 300px;
+  }
+}
+
+.modal-md {
+  @media (min-width: 576px) {
+    max-width: 500px;
+  }
+}
+
+.modal-lg {
+  @media (min-width: 992px) {
+    max-width: 800px;
+  }
+}
+
+.modal-xl {
+  @media (min-width: 992px) {
+    max-width: 800px;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 1140px;
+  }
+}
+
+.modal-backdrop {
+  background-color: $gray-12;
+  bottom: 0;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1040;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.modal-content {
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  outline: 0;
+  pointer-events: auto;
+  position: relative;
+  width: 100%;
+}
+
+.modal-header {
+  align-items: flex-start;
+  background-color: $gray-1;
+  border-bottom: 1px solid $gray-1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-stretch: normal;
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0;
+}
+
+.modal-body {
+  background-color: $white;
+  flex: 1 1 auto;
+  padding: 1rem;
+  position: relative;
+}
+
+.modal-footer {
+  align-items: center;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-top: 1px solid $gray-1;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.close {
+  background-color: $transparent;
+  border: 0;
+  color: $black;
+  cursor: pointer;
+  float: right;
+  font-size: 42px;
+  font-weight: 200;
+  line-height: 1.2;
+  margin: -1rem -1rem -1rem auto;
+  opacity: 1;
+  padding: 0 1rem;
+  text-shadow: none;
+}
+
+// Dark Mode
+.dark.modal-content {
+  .modal-body {
+    background-color: $black;
+    color: $white;
+  }
+
+  .modal-header {
+    background-color: $gray-14;
+    border-bottom: 1px solid $black;
+  }
+
+  .modal-title {
+    color: $white;
+  }
+
+  .close {
+    color: $white;
+  }
+}

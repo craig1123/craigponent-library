@@ -1,0 +1,71 @@
+@import "./../variables";
+
+$blue-background: rgba($blue-accent, 0.1);
+
+.accordion-header {
+  align-items: center;
+  background-color: $gray-1;
+  border: none;
+  border-radius: 3px;
+  color: $gray-9;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  padding: 9.5px 30px 9.5px 20px;
+  position: relative;
+  transition: 0.3s all;
+}
+
+.caret {
+  background-color: $transparent;
+  height: 100%;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  transition: 0.3s all;
+}
+
+.accordion-wrapper {
+  border: solid 1px $transparent;
+  border-radius: 3px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.wrapper-open {
+  border: solid 1px $gray-3;
+  border-radius: 3px;
+}
+
+.accordion-body {
+  color: $gray-7;
+  font-size: 14px;
+  line-height: 1.71;
+  padding: 15px 20px;
+}
+
+.dark {
+  &.wrapper-open {
+    border-color: $gray-10;
+  }
+
+  .accordion-header {
+    background-color: $gray-11;
+    color: $white;
+  }
+}
+
+.accordion-header:hover {
+  background-color: $blue-background;
+  color: $blue-accent;
+
+  .caret {
+    g {
+      fill: $blue-accent !important; //stylelint-disable-line
+    }
+
+    path {
+      fill: $blue-accent !important; //stylelint-disable-line
+    }
+  }
+}

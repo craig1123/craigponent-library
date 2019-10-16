@@ -1,0 +1,62 @@
+---
+name: SectionHeader
+menu: Components
+route: /components-sectionHeader
+---
+
+import { Playground, Props } from 'docz';
+import { Box } from './helpers';
+import { SectionHeader, Button } from '../../lib';
+
+# SectionHeader
+
+```javascript
+import SectionHeader from 'craigponent-library/dist/SectionHeader';
+```
+
+## Properties
+<Props of={SectionHeader} />
+
+## Basic usage
+
+<Playground>
+  <Box style={{ background: "#fff", padding: '20px' }} minHeight={80}>
+    <SectionHeader>Pending Transactions</SectionHeader>
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <SectionHeader styleMode="dark">
+    Pending Transactions
+  </SectionHeader>
+</Playground>
+
+## Add rightSide
+<Playground>
+  <SectionHeader
+    rightSide={
+      <Button
+        style={{marginTop: '5px'}}
+        btnType="link"
+      >
+        SEE AVAILABLE TOKENS
+      </Button>
+    }
+    styleMode="dark"
+  >
+    Tokens
+  </SectionHeader>
+</Playground>
+
+## No Border
+
+<Playground>
+  <SectionHeader
+    border={false}
+    styleMode="dark"
+  >
+    Tokens
+  </SectionHeader>
+</Playground>

@@ -1,0 +1,167 @@
+---
+name: Pagination
+menu: Components
+route: /components-pagination
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Pagination } from '../../lib';
+import { Row, Box } from './helpers';
+
+# Pagination
+
+## Install
+
+
+```bash
+import Pagination from 'craigponent-library/dist/Pagination';
+```
+
+
+## Properties
+
+<Props of={Pagination} />
+
+## Basic Usage
+
+<Playground>
+  <Box style={{ background: "#fff" }} minHeight={80}>
+    <Component initialState={{ activePage: 1 }}>
+      {({ setState, state }) => (
+        <Pagination
+          activePage={state.activePage}
+          setActivePage={(i) => setState({ activePage: i })}
+          totalPages={20}
+        />
+      )}
+    </Component>
+  </Box>
+</Playground>
+
+## Arrows only
+
+<Playground>
+  <Box style={{ background: "#fff", padding: '20px' }} minHeight={50}>
+    <Component initialState={{ activePage: 1 }}>
+      {({ setState, state }) => (
+        <>
+          <Pagination
+            activePage={state.activePage}
+            arrowsOnly
+            pageSize={10}
+            setActivePage={(i) => setState({ activePage: i })}
+            totalElements={192}
+            totalPages={20}
+          />
+        </>
+      )}
+    </Component>
+  </Box>
+</Playground>
+
+## Dark mode
+
+<Playground>
+  <Component initialState={{ activePage: 1 }}>
+    {({ setState, state }) => (
+      <>
+        <Pagination
+          activePage={state.activePage}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>Arrows only</div>
+        <Pagination
+          activePage={state.activePage}
+          arrowsOnly
+          pageSize={10}
+          setActivePage={(i) => setState({ activePage: i })}
+          totalElements={196}
+          styleMode="dark"
+          totalPages={20}
+        />
+      </>
+    )}
+  </Component>
+</Playground>
+
+
+## isMobile
+
+<Playground>
+  <Component initialState={{ activePage: 1 }}>
+    {({ setState, state }) => (
+      <Pagination
+        activePage={state.activePage}
+        isMobile
+        setActivePage={(i) => setState({ activePage: i })}
+        styleMode="dark"
+        totalPages={20}
+      />
+    )}
+  </Component>
+</Playground>
+
+## isMobile & disabled
+
+<Playground>
+  <Component initialState={{ activePage: 1 }}>
+    {({ setState, state }) => (
+      <Pagination
+        activePage={state.activePage}
+        isMobile
+        setActivePage={(i) => setState({ activePage: i })}
+        styleMode="dark"
+        totalPages={20}
+        disabled
+      />
+    )}
+  </Component>
+</Playground>
+
+## chunkSize
+
+<Playground>
+  <Component initialState={{ activePage: 1 }}>
+    {({ setState, state }) => (
+      <>
+        <Pagination
+          activePage={state.activePage}
+          chunkSize={3}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+        <Pagination
+          activePage={state.activePage}
+          chunkSize={4}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+        <Pagination
+          activePage={state.activePage}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+        <Pagination
+          activePage={state.activePage}
+          chunkSize={6}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+        <Pagination
+          activePage={state.activePage}
+          chunkSize={7}
+          setActivePage={(i) => setState({ activePage: i })}
+          styleMode="dark"
+          totalPages={20}
+        />
+      </>
+    )}
+  </Component>
+</Playground>
