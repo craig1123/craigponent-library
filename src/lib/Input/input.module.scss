@@ -32,6 +32,7 @@
   &:disabled,
   &[readonly] {
     background-color: $gray-3;
+    cursor: not-allowed;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
@@ -134,10 +135,6 @@
   border-top-left-radius: 0;
 }
 
-select.form-control {
-  text-indent: 3px;
-}
-
 .small-text {
   color: $gray-7;
   font-size: 12px;
@@ -215,6 +212,5 @@ textarea.form-control {
   &:disabled,
   &[readonly] {
     background-color: $gray-13;
-    cursor: not-allowed;
   }
 }

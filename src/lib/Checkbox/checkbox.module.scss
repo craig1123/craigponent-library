@@ -41,26 +41,14 @@
 
 input.valid {
   border-color: $main-green !important; // stylelint-disable-line
-
-  &:after {
-    color: $main-green !important; // stylelint-disable-line
-  }
 }
 
 input.invalid {
   border-color: $red-accent !important; // stylelint-disable-line
-
-  &:after {
-    color: $red-accent !important; // stylelint-disable-line
-  }
 }
 
 input.warning {
   border-color: $yellow !important; // stylelint-disable-line
-
-  &:after {
-    color: $yellow !important; // stylelint-disable-line
-  }
 }
 
 .form-check-label {
@@ -93,9 +81,5 @@ input.warning {
 
   &:checked {
     background-color: $blue-accent;
-
-    &:after {
-      color: $white;
-    }
   }
 }

@@ -11,15 +11,15 @@ export default class TipContainer extends Component {
       delay,
       isShowing,
       backgroundColor,
-      wrapper,
+      dimensions,
       position,
     } = this.props;
-    const wrapperStyle =
-      wrapper.current && wrapper.current.getBoundingClientRect();
+
     const opacity = isShowing ? 1 : 0;
     const pointerEvents = isShowing ? 'auto' : 'none';
-    if (wrapperStyle) {
-      const { top, bottom, left, right, height, width } = wrapperStyle;
+
+    if (dimensions && dimensions.top) {
+      const { top, bottom, left, right, height, width } = dimensions;
       switch (position) {
         case 'top':
           return {
@@ -137,11 +137,9 @@ export default class TipContainer extends Component {
   };
 
   getAnimationStyleByPosition = position => {
-    const { wrapper } = this.props;
-    const wrapperStyle =
-      wrapper.current && wrapper.current.getBoundingClientRect();
-    if (wrapperStyle) {
-      const { top, left, height, width } = wrapperStyle;
+    const { dimensions } = this.props;
+    if (dimensions && dimensions.top) {
+      const { top, left, height, width } = dimensions;
       switch (position) {
         case 'top':
           return {

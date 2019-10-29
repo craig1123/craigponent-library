@@ -11,7 +11,7 @@ import { Alert, Button, Fade, Collapse } from '../../lib';
 # Alert
 
 ```javascript
-import Alert from 'craigponent-library/dist/Alert';
+import Alert from '@tzero/tzero-component-library/dist/Alert';
 ```
 
 Alerts are to assist communication between the user and the UI
@@ -25,7 +25,6 @@ Alerts are to assist communication between the user and the UI
 
 <Playground>
   <Alert
-    onClose={() => {}}
     color="primary"
     description="We are only accepting limit orders that are good until the close of market."
     title="Market Hours 9:30am - 4:00pm EST"
@@ -43,8 +42,8 @@ Alerts are to assist communication between the user and the UI
 </Playground>
 
 ## Controlled Alert
-* Wrap a `Fade` component around for a smooth transition
-* You can also Wrap a `Collapse` component around that `Fade` for a smoother transition
+* Use the collapse or fade prop (or both!) for a smoother transition
+* Or set them to false if you don't want an animated transition (for some reason..)
 
 <Playground>
   <Component
@@ -52,8 +51,6 @@ Alerts are to assist communication between the user and the UI
       isOpen1: true,
       isOpen2: true,
       isOpen3: true,
-      fade1: true,
-      fade2: true,
     }}
   >
     {({ setState, state }) => (
@@ -65,32 +62,26 @@ Alerts are to assist communication between the user and the UI
         >
           This primary alert can be closed/controlled
         </Alert>
-        <Fade in={state.fade1} duration={300} onExited={() => setState({ isOpen2: false })}>
-          <Alert
-            color="success"
-            isOpen={state.isOpen2}
-            onClose={() => setState({ fade1: false })}
-          >
-            This success alert has a fade animation
-          </Alert>
-        </Fade>
-        <Collapse isOpen={state.isOpen3}>
-          <Fade in={state.fade2} duration={300} onExited={() => setState({ isOpen3: false })}>
-            <Alert
-              color="danger"
-              onClose={() => setState({ fade2: false })}
-            >
-              This danger alert has a fade and collapse animation
-            </Alert>
-          </Fade>
-        </Collapse>
+        <Alert
+          color="success"
+          isOpen={state.isOpen2}
+          onClose={() => setState({ isOpen2: false})}
+          collapse={false}
+        >
+          This success alert has a fade animation
+        </Alert>
+        <Alert
+          color="danger"
+          isOpen={state.isOpen3}
+          onClose={() => setState({ isOpen3: false})}
+        >
+          This danger alert has a fade and collapse animation
+        </Alert>
         <Button
           onClick={() => setState({
             isOpen1: true,
             isOpen2: true,
             isOpen3: true,
-            fade1: true,
-            fade2: true
           })}
         >
           Refresh

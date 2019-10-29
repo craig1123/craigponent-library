@@ -7,9 +7,10 @@ import styles from './input.module.scss';
 const Input = props => {
   const {
     className,
+    children,
     formText,
+    invalidInput,
     invalidText,
-    warningText,
     innerRef,
     label,
     leftAddOn,
@@ -20,15 +21,18 @@ const Input = props => {
     size,
     styleMode,
     type,
+    validInput,
     validText,
+    warningInput,
+    warningText,
     wrapperClass,
     ...attributes
   } = props;
 
   const Tag = type === 'textarea' ? type : 'input';
-  const invalidClass = invalidText ? styles['is-invalid'] : '';
-  const warningClass = warningText ? styles['is-warning'] : '';
-  const validClass = validText ? styles['is-valid'] : '';
+  const invalidClass = invalidInput || invalidText ? styles['is-invalid'] : '';
+  const warningClass = warningInput || warningText ? styles['is-warning'] : '';
+  const validClass = validInput || validText ? styles['is-valid'] : '';
   const darkMode = styleMode === 'dark' ? styles.dark : '';
   const formControlClass = `${styles['form-control']} ${styles[size]}`;
 
@@ -150,9 +154,11 @@ const Input = props => {
 };
 
 Input.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   formText: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
+  invalidInput: PropTypes.bool,
   invalidText: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   leftAddOn: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
@@ -163,17 +169,20 @@ Input.propTypes = {
   size: PropTypes.oneOf(['sm', 'md', 'lg']),
   styleMode: PropTypes.string,
   type: PropTypes.string,
+  validInput: PropTypes.bool,
   validText: PropTypes.string,
+  warningInput: PropTypes.bool,
   warningText: PropTypes.string,
   wrapperClass: PropTypes.string,
 };
 
 Input.defaultProps = {
   className: '',
+  children: null,
   formText: null,
   innerRef: null,
+  invalidInput: false,
   invalidText: null,
-  warningText: null,
   label: null,
   leftAddOn: null,
   leftIcon: null,
@@ -183,7 +192,10 @@ Input.defaultProps = {
   size: 'lg',
   styleMode: 'light',
   type: 'text',
+  validInput: false,
   validText: null,
+  warningInput: false,
+  warningText: null,
   wrapperClass: '',
 };
 

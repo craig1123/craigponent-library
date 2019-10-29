@@ -26,6 +26,7 @@ import Input from 'craigponent-library/dist/Input';
 <Playground>
   <Box style={{ background: "#fff", color: '#545658', padding: '20px' }} minHeight={80}>
     <Input name="basic" placeholder="basic input" label="Basic Input" />
+    <Input disabled name="basic-disabled" placeholder="disabled" label="Disabled" />
   </Box>
 </Playground>
 
@@ -33,6 +34,7 @@ import Input from 'craigponent-library/dist/Input';
 
 <Playground>
   <Input name="dark1" label="dark" placeholder="dark" styleMode="dark" />
+  <Input disabled name="dark-disabled" placeholder="disabled" label="Disabled" styleMode="dark" />
 </Playground>
 
 ## Size
@@ -44,54 +46,52 @@ import Input from 'craigponent-library/dist/Input';
 </Playground>
 
 ## NumberInput
-
-<Playground>
-  <NumberInput
-    name="price"
-    label="Please enter a number"
-    leftIcon="$"
-    placeholder="0.00"
-    styleMode="dark"
-    size="lg"
-  />
-  <Component initialState={{ value: 55555 }}>
-    {({ setState, state }) => (
-      <NumberInput
-        onChange={(value) => setState({ value: value.replace(/,/g, "") })}
-        name="price2"
-        label="Controlled input"
-        leftIcon="$"
-        placeholder="0.00"
-        styleMode="dark"
-        size="lg"
-        value={state.value}
-      />
-    )}
-    </Component>
-</Playground>
+* See `/components-numberInput`
 
 ## Validation
 
 <Playground>
   <Input
+    name="valid-input"
+    label="Only valid input"
+    leftIcon="$"
+    placeholder="valid"
+    styleMode="dark"
+    validInput
+  />
+  <Input
     name="valid"
-    label="valid"
+    label="Valid text"
     leftIcon="$"
     placeholder="valid"
     styleMode="dark"
     validText="Money is accepted"
   />
   <Input
+    name="invalid-input"
+    label="Only invalid input"
+    placeholder="invalid"
+    styleMode="dark"
+    invalidInput
+  />
+  <Input
     name="invalid"
-    label="invalid"
+    label="Invalid text"
     placeholder="invalid"
     styleMode="dark"
     warningText="invalidText will override this"
     invalidText="Email address is already registered."
   />
   <Input
+    name="warning-input"
+    label="Only warning input"
+    placeholder="warning"
+    styleMode="dark"
+    warningInput
+  />
+  <Input
     name="warning"
-    label="warning"
+    label="Warning text"
     placeholder="warning"
     styleMode="dark"
     warningText="Are you sure?"
@@ -221,81 +221,15 @@ import Input from 'craigponent-library/dist/Input';
   />
 </Playground>
 
-## Different Types
+## Type textarea
 
 <Playground>
-  <form>
-    <Button type="submit" btnType="success">Submit</Button>
-    <Input
-      label="Select"
-      placeholder="Select"
-      name="select"
-      required
-      type="select"
-      styleMode="dark"
-    >
-      <option value="yes">yes</option>
-      <option value="no">no</option>
-      <option value="maybe">maybe</option>
-      <option value="unknown">unknown</option>
-    </Input>
-    <label>Toggle</label>
-    <Component initialState={{ checked: true }}>
-      {({ setState, state }) => (
-        <Input
-          type="toggle"
-          name="toggle"
-          checked={state.checked}
-          onChange={() => setState({ checked: !state.checked })}
-        />
-      )}
-      </Component>
-    <Input
-      label="Dark Checkbox"
-      styleMode="dark"
-      type="checkbox"
-    />
-    <div style={{ background: '#fff', color: '#545658', paddingLeft: '5px' }}>
-      <Input
-        label="Light Checkbox"
-        type="checkbox"
-      />
-    </div>
-    <Input
-      label="Radios"
-      name="this-radio"
-      required
-      styleMode="dark"
-      type="radio"
-    />
-    <Input
-      label="Dark"
-      name="this-radio"
-      required
-      styleMode="dark"
-      type="radio"
-    />
-    <div style={{ background: '#fff', color: '#545658', paddingLeft: '5px' }}>
-      <Input
-        label="Light"
-        name="this-radio"
-        required
-        type="radio"
-      />
-    </div>
-    <Input
-      label="textarea"
-      placeholder="basic textarea"
-      required
-      rows={5}
-      styleMode="dark"
-      type="textarea"
-    />
-    <Input
-      label="disabled"
-      disabled
-      placeholder="disabled"
-      styleMode="dark"
-    />
-  </form>
+  <Input
+    label="textarea"
+    placeholder="basic textarea"
+    required
+    rows={5}
+    styleMode="dark"
+    type="textarea"
+  />
 </Playground>

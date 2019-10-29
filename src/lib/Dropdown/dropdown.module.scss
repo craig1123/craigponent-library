@@ -5,10 +5,10 @@
 .dropdown-container {
   align-items: center;
   color: $gray-10;
-  display: flex !important; // stylelint-disable-line
+  display: flex !important;
   margin-right: 20px;
   width: max-content;
-  z-index: auto !important; // stylelint-disable-line
+  z-index: auto !important;
 
   &.dark {
     color: $white !important;
@@ -20,13 +20,12 @@
 }
 
 .tip-dropdown-container {
-  box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.06);
+  box-shadow: rgba(64, 67, 69, 0.17) 0px 0px 8px 1px;
   min-width: 212px;
   padding: 12px 0 !important;
-  top: 48px;
 
   &.dark {
-    border: none;
+    border: solid 1px $gray-10;
   }
 }
 

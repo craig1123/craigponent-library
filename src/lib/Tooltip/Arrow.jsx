@@ -5,11 +5,9 @@ import styles from './tooltip.module.scss';
 
 export default class Arrow extends Component {
   getBaseStyle = () => {
-    const { duration, easing, delay, isShowing, wrapper } = this.props;
-    const wrapperStyle =
-      wrapper.current && wrapper.current.getBoundingClientRect();
-    if (wrapperStyle) {
-      const { top, bottom, left, right } = wrapperStyle;
+    const { dimensions, duration, easing, delay, isShowing } = this.props;
+    if (dimensions && dimensions.top) {
+      const { top, bottom, left, right } = dimensions;
       return {
         transition: `all ${duration}ms ${easing} ${delay}ms`,
         opacity: isShowing ? 1 : 0,
@@ -42,11 +40,9 @@ export default class Arrow extends Component {
   };
 
   getAnimationStyleByPosition = position => {
-    const { wrapper } = this.props;
-    const wrapperStyle =
-      wrapper.current && wrapper.current.getBoundingClientRect();
-    if (wrapperStyle) {
-      const { top, left, height, width } = wrapperStyle;
+    const { dimensions } = this.props;
+    if (dimensions && dimensions.top) {
+      const { top, left, height, width } = dimensions;
       switch (position) {
         case 'top':
         case 'top-right':
@@ -123,12 +119,10 @@ export default class Arrow extends Component {
   };
 
   getArrowStyle = () => {
-    const { backgroundColor, position, wrapper, styleMode } = this.props;
-    const wrapperStyle =
-      wrapper.current && wrapper.current.getBoundingClientRect();
+    const { backgroundColor, dimensions, position, styleMode } = this.props;
     const fillColor = styleMode === 'dark' ? '#080808' : '#E7E8EA';
-    if (wrapperStyle) {
-      const { top, left, height, width } = wrapperStyle;
+    if (dimensions && dimensions.top) {
+      const { top, left, height, width } = dimensions;
       switch (position) {
         case 'top':
         case 'top-left':

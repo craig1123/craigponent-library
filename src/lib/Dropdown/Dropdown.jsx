@@ -1,4 +1,4 @@
-import React, { Fragment, useRef } from 'react';
+import React, { Fragment, useRef, useState, useEffect } from 'react';
 import {
   string,
   arrayOf,
@@ -18,24 +18,43 @@ const Dropdown = ({
   caret,
   children,
   className,
-  onChange,
+  content,
+  isOpen,
+  noFocus,
+  onItemSelect,
   onClose,
   onOpen,
   options,
   styleMode,
+  tipContainerClassName,
+  toggle,
   value,
   valueClassName,
   ...rest
 }) => {
+  const [isDDOpen, setIsDDOpen] = useState(isOpen);
   const childrenRef = useRef(null);
   const firstOptionRef = useRef(null);
-  const darkMode = styleMode === 'dark' ? 'dark' : '';
-  const dropdownStyles = `${styles['dropdown-container']} ${
-    darkMode ? styles.dark : ''
-  } ${className}`.trim();
+
+  useEffect(() => {
+    setIsDDOpen(isOpen);
+  }, [isOpen]);
+
+  const darkMode = styleMode === 'dark';
+  const darkStyle = darkMode ? styles.dark : '';
+  const dropdownStyles = `${
+    styles['dropdown-container']
+  } ${darkStyle} ${className}`.trim();
+  const tipContainterStyles = `${
+    styles['tip-dropdown-container']
+  } ${darkStyle} ${tipContainerClassName}`.trim();
   const onDropdownOpen = () => {
-    if (firstOptionRef.current) {
+    if (!noFocus && firstOptionRef.current) {
       firstOptionRef.current.focus();
+    }
+
+    if (toggle) {
+      toggle(true);
     }
 
     if (onOpen) {
@@ -48,6 +67,10 @@ const Dropdown = ({
       childrenRef.current.focus();
     }
 
+    if (toggle) {
+      toggle(false);
+    }
+
     if (onClose) {
       onClose();
     }
@@ -55,23 +78,27 @@ const Dropdown = ({
 
   return (
     <Tooltip
-      backgroundColor={darkMode === 'dark' ? '#181818' : '#fff'}
+      backgroundColor={darkMode ? '#181818' : '#fff'}
       className={dropdownStyles}
+      isOpen={isDDOpen}
       onClose={onDropdownClose}
       onOpen={onDropdownOpen}
-      tipContainerClassName={styles['tip-dropdown-container']}
+      tipContainerClassName={tipContainterStyles}
       content={
-        <Fragment>
-          {options.map((option, i) => (
-            <DropdownItem
-              innerRef={i === 0 ? firstOptionRef : null}
-              option={option}
-              onChange={onChange}
-              key={option.name}
-              styleMode={styleMode}
-            />
-          ))}
-        </Fragment>
+        content || (
+          <Fragment>
+            {options.map((option, i) => (
+              <DropdownItem
+                innerRef={i === 0 ? firstOptionRef : null}
+                option={option}
+                onItemSelect={onItemSelect}
+                key={option.name}
+                setIsDDOpen={setIsDDOpen}
+                styleMode={styleMode}
+              />
+            ))}
+          </Fragment>
+        )
       }
       {...rest}
     >
@@ -90,7 +117,7 @@ const Dropdown = ({
           className={styles['dropdown-icon']}
           height={8}
           width={8}
-          fillColor={darkMode === 'dark' ? '#fff' : '#2f3337'}
+          fillColor={darkMode ? '#fff' : '#2f3337'}
         />
       )}
     </Tooltip>
@@ -98,7 +125,25 @@ const Dropdown = ({
 };
 
 Dropdown.propTypes = {
-  onChange: func.isRequired,
+  onItemSelect: func.isRequired,
+  /** Show the tooltip arrow or not */
+  arrow: bool,
+  /** Show the default caret triangle or not */
+  caret: bool,
+  children: node,
+  className: string,
+  /** Pass down content in place of options */
+  content: node,
+  /** if true, the dropdown will open when hovered */
+  hover: bool,
+  /** Makes the dropdown controlled */
+  isOpen: bool,
+  /** If true, will not focus the first element */
+  noFocus: bool,
+  /** Fired when the dropdown is closed */
+  onClose: func,
+  /** Fired when the dropdown is opened */
+  onOpen: func,
   options: arrayOf(
     shape({
       name: oneOfType([string, number]).isRequired,
@@ -106,31 +151,33 @@ Dropdown.propTypes = {
       active: bool,
       disabled: bool,
     }),
-  ).isRequired,
-  /** Show the default caret triangle or not */
-  caret: bool,
-  children: node,
-  className: string,
-  /** if true, the dropdown will open when hovered */
-  hover: bool,
-  onClose: func,
-  onOpen: func,
+  ),
   /** The direction the dropdown will open */
   position: string,
   styleMode: string,
-  value: string,
+  /** Fired when the dropdown is opened or closed */
+  tipContainerClassName: string,
+  toggle: func,
+  value: oneOfType([string, number]),
   valueClassName: string,
 };
 
 Dropdown.defaultProps = {
+  arrow: false,
   caret: true,
   children: null,
   className: '',
+  content: null,
   hover: false,
+  isOpen: false,
+  noFocus: false,
   onClose: null,
   onOpen: null,
+  options: [],
   position: 'bottom',
   styleMode: 'light',
+  tipContainerClassName: '',
+  toggle: null,
   valueClassName: '',
   value: '',
 };
