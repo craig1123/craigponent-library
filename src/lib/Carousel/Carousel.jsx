@@ -60,6 +60,12 @@ class Carousel extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    if (prevProps.children !== this.props.children) {
+      this.setState(
+        Utils.calculateInitialProps(this.props, this.stageComponent),
+      );
+    }
+
     if (
       this.props.autoHeight &&
       this.stageComponent &&
@@ -860,7 +866,7 @@ class Carousel extends Component {
               className={styles['carousel-stage']}
               ref={this.setStageComponentRef}
             >
-              {clones.map(this.renderStageItem)}
+              {React.Children.map(clones, this.renderStageItem)}
             </ul>
           </div>
         </Swipeable>
@@ -923,7 +929,7 @@ Carousel.defaultProps = {
   infinite: true,
   items: [],
   keysControlDisabled: false,
-  mouseDragEnabled: false,
+  mouseDragEnabled: true,
   onInitialized: null,
   onResized: null,
   onSlideChange: null,

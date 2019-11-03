@@ -1,4 +1,4 @@
-@import "../variables";
+@import '../variables';
 
 .pagination-wrapper {
   align-items: center;
@@ -28,7 +28,7 @@
 }
 
 .page-link {
-  background: none; // stylelint-disable-line
+  background: $gray-2;
   border: none;
   border-radius: 3px;
   color: $gray-10;
@@ -52,7 +52,6 @@
   &:hover {
     background-color: $gray-1;
     border-color: $gray-3;
-    color: $blue-accent-hover;
     text-decoration: none;
     z-index: 2;
   }
@@ -93,20 +92,19 @@
 }
 
 .page-item.active .page-link {
-  background-color: $gray-1;
-  border-color: $gray-3;
-  color: $blue-accent-hover;
+  background-color: $white;
+  box-shadow: 0 2px 0 0 rgba(84, 86, 88, 0.06);
   z-index: 1;
 }
 
 .page-item.disabled .page-link {
   background-color: $transparent;
-  color: $gray-5;
+  color: $gray-10;
   cursor: not-allowed;
 }
 
 .caret {
-  font-size: 28px;
+  font-size: 26px;
   font-weight: 200;
   line-height: 0.8;
 }
@@ -135,21 +133,21 @@
 .dark.pagination-wrapper {
   .page-item > button {
     background-color: $gray-13;
-    border-color: $gray-11;
+    border-color: $gray-13;
     color: $white;
   }
 
   .page-item.active > button {
-    background-color: $gray-9;
-    border-color: $gray-9;
+    background-color: $gray-14;
+    border-color: $gray-14;
   }
 
   .page-item > button:hover {
-    color: $blue-accent;
+    background-color: $gray-14;
   }
 
   .page-item > button:active {
-    background-color: $gray-10;
+    background-color: $gray-14;
   }
 
   .page-item.disabled > button {

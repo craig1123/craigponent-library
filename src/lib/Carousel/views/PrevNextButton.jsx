@@ -5,10 +5,14 @@ import PropTypes from 'prop-types';
 
 // components
 import Button from '../../Button/Button';
-import LeftArrow from '../../icons/leftArrow.svg';
-import RightArrow from '../../icons/rightArrow.svg';
+import RightCaret from '../../icons/rightCaret.svg';
 
 import styles from '../carousel.module.scss';
+
+const LeftCaret = ({ style, ...rest }) => {
+  const rotate = { transform: 'rotate(180deg)', ...style };
+  return <RightCaret style={rotate} {...rest} />;
+};
 
 export const PrevNextButton = ({
   name,
@@ -21,6 +25,7 @@ export const PrevNextButton = ({
   const className = `carousel__${name}-btn-item${
     disabled ? ' __inactive' : ''
   }`;
+  const darkMode = styleMode === 'dark' ? styles.dark : '';
 
   return (
     <div className={`${styles[`carousel__${name}-btn`]}`}>
@@ -32,15 +37,16 @@ export const PrevNextButton = ({
         {name === 'prev' ? (
           <Button
             noMargin
+            btnType="link"
             rounded
             disabled={disabled}
             onClick={onClick}
             styleMode={styleMode}
             className={`${styles['arrow-wrapper']} ${
               styles.previous
-            } ${className}`}
+            } ${className} ${darkMode}`}
           >
-            <LeftArrow
+            <LeftCaret
               fillColor={styleMode === 'dark' ? '#fff' : '#000'}
               height={16}
               width={16}
@@ -49,13 +55,16 @@ export const PrevNextButton = ({
         ) : (
           <Button
             noMargin
+            btnType="link"
             rounded
             disabled={disabled}
             onClick={onClick}
             styleMode={styleMode}
-            className={`${styles['arrow-wrapper']} ${styles.next}`}
+            className={`${styles['arrow-wrapper']} ${
+              styles.next
+            } ${className} ${darkMode}`}
           >
-            <RightArrow
+            <RightCaret
               fillColor={styleMode === 'dark' ? '#fff' : '#000'}
               height={16}
               width={16}

@@ -26,7 +26,8 @@ const Radio = ({
 
   return (
     <div className={`${styles['radio-wrappers']} ${wrapperClass}`.trim()}>
-      <label htmlfor={name} className={styles['form-check-label']}> {/* eslint-disable-line */}
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+      <label className={styles['form-check-label']}>
         <input
           {...attributes}
           ref={innerRef}
@@ -43,12 +44,12 @@ const Radio = ({
 Radio.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  invalid: PropTypes.string,
+  invalid: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   name: PropTypes.string,
   styleMode: PropTypes.string,
-  valid: PropTypes.string,
-  warning: PropTypes.string,
+  valid: PropTypes.bool,
+  warning: PropTypes.bool,
   wrapperClass: PropTypes.string,
 };
 

@@ -83,5 +83,8 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "lohook": "^0.0.2"
+  }
 }

@@ -3,7 +3,14 @@ import { string, shape, bool, number, oneOfType, func } from 'prop-types';
 
 import styles from './dropdown.module.scss';
 
-function DropdownItem({ option, onChange, innerRef, styleMode }) {
+function DropdownItem({
+  option,
+  onItemSelect,
+  setIsDDOpen,
+  innerRef,
+  styleMode,
+  toggle,
+}) {
   const { value, name, disabled, active } = option;
   const darkMode = styleMode === 'dark' ? styles.dark : '';
   if (`${value}`.toLowerCase() === 'separator') {
@@ -15,11 +22,12 @@ function DropdownItem({ option, onChange, innerRef, styleMode }) {
       return;
     }
 
-    onChange(option, e);
-    // HACK: if anyone can solve this, congrats. Otherwise, waiting until rewrite of tooltip to support controlled
-    setTimeout(() => {
-      document.body.firstElementChild.click();
-    }, 0);
+    onItemSelect(option, e);
+    setIsDDOpen(false);
+
+    if (toggle) {
+      toggle(false);
+    }
   };
 
   return (
@@ -40,19 +48,22 @@ function DropdownItem({ option, onChange, innerRef, styleMode }) {
 }
 
 DropdownItem.propTypes = {
-  onChange: func.isRequired,
+  onItemSelect: func.isRequired,
   option: shape({
     name: oneOfType([string, number]).isRequired,
     value: oneOfType([string, number]).isRequired,
     active: bool,
     disabled: bool,
   }).isRequired,
+  setIsDDOpen: func.isRequired,
   styleMode: string.isRequired,
   innerRef: shape({}),
+  toggle: func,
 };
 
 DropdownItem.defaultProps = {
   innerRef: null,
+  toggle: null,
 };
 
 export default DropdownItem;

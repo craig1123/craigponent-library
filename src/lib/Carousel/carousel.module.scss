@@ -8,13 +8,20 @@ $play-btn-size: 32px;
 
 .arrow-wrapper {
   align-items: center;
-  background: $white;
-  box-shadow: 0 2px 0 0 rgba(84, 86, 88, 0.06);
   display: flex;
   height: 44px !important;
   justify-content: center;
   position: absolute;
-  width: 44px;
+  width: 44px !important;
+
+  &:hover {
+    background: $white;
+    box-shadow: 0 2px 0 0 rgba(84, 86, 88, 0.06);
+
+    &.dark {
+      background: $gray-14 !important;
+    }
+  }
 }
 
 .next {
@@ -40,6 +47,12 @@ $play-btn-size: 32px;
   &.middle {
     align-items: center;
     display: flex;
+  }
+
+  button[class^='button-module_btn'] {
+    &:disabled {
+      background: $transparent !important;
+    }
   }
 }
 

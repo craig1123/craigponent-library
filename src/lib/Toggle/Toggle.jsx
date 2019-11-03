@@ -6,7 +6,8 @@ import styles from './toggle.module.scss';
 
 const Toggle = ({ innerRef, name, wrapperClass, ...attributes }) => (
   <div className={`${styles['form-group']} ${wrapperClass}`.trim()}>
-    <label htmlfor={name} className={styles['form-toggle']}> {/* eslint-disable-line */}
+    {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+    <label className={styles['form-toggle']}>
       <input {...attributes} ref={innerRef} name={name} type="checkbox" />
       <span className={styles['form-toggle-slider']} />
     </label>

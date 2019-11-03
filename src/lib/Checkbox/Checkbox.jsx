@@ -29,10 +29,11 @@ const Checkbox = ({
 
   return (
     <div className={`${styles['checkbox-wrapper']} ${wrapperClass}`.trim()}>
-      <label htmlfor={name} className={labelClass}> {/* eslint-disable-line */}
+      <label htmlFor={name} className={labelClass}>
         <input
           {...attributes}
           ref={innerRef}
+          id={name}
           name={name}
           className={inputClassName}
           type="checkbox"
@@ -46,24 +47,24 @@ const Checkbox = ({
 Checkbox.propTypes = {
   className: PropTypes.string,
   innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
-  invalid: PropTypes.string,
+  invalid: PropTypes.bool,
   label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   name: PropTypes.string,
   styleMode: PropTypes.string,
-  valid: PropTypes.string,
-  warning: PropTypes.string,
+  valid: PropTypes.bool,
+  warning: PropTypes.bool,
   wrapperClass: PropTypes.string,
 };
 
 Checkbox.defaultProps = {
   className: '',
   innerRef: null,
-  invalid: null,
+  invalid: false,
   label: null,
   name: null,
   styleMode: 'light',
-  valid: null,
-  warning: null,
+  valid: false,
+  warning: false,
   wrapperClass: '',
 };
 

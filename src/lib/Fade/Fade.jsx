@@ -5,6 +5,7 @@ import Transition from 'react-transition-group/Transition';
 const defaultStyle = duration => ({
   transition: `opacity ${duration}ms ease-in-out`,
   opacity: 0,
+  willChange: 'transition',
 });
 
 const transitionStyles = opacity => ({

@@ -17,8 +17,6 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
 
 ## Properties
 
-* Dropdown also inherits all of Tooltip props
-
 <Props of={Dropdown} />
 
 ## Basic usage
@@ -29,7 +27,7 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
     {({ setState, state }) => (
       <Row>
         <Dropdown
-          onChange={(option, e) => setState({ value: option.name })}
+          onItemSelect={(option, e) => setState({ value: option.name })}
           options={[
             { name: 'ALL', value: 'ALL' },
             { name: 'Cash Deposits', value: 'FIAT_DEPOSIT' },
@@ -55,7 +53,7 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
     {({ setState, state }) => (
       <Row>
         <Dropdown
-          onChange={(option, e) => setState({ value: option.name })}
+          onItemSelect={(option, e) => setState({ value: option.value })}
           options={[
             { name: 'ALL', value: 'ALL' },
             { name: 'Cash Deposits', value: 'FIAT_DEPOSIT' },
@@ -73,18 +71,16 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
 </Playground>
 
 <br></br>
-<br></br>
 
 ## Customizable Children
 
 <Playground>
-  <Component initialState={{ value: 'ALL' }}>
+  <Component initialState={{ value: 0 }}>
     {({ setState, state }) => (
       <Row>
         <Dropdown
           caret={false}
-          onChange={(option, e) => setState({ value: option.name })}
-          arrow
+          onItemSelect={(option, e) => setState({ value: option.name })}
           options={[
             { name: 'Set as Preferred', value: 0, disabled: true },
             { name: 'Remove', value: 1 },
@@ -96,6 +92,7 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
         >
           <Button
             btnType="primary"
+            styleMode="dark"
             size="lg"
           >
             ...
@@ -106,6 +103,45 @@ import Dropdown from 'craigponent-library/dist/Dropdown';
   </Component>
 </Playground>
 
+<br></br>
+
+## Controlled Dropdown
+
+<Playground>
+  <Component initialState={{ value: 'ALL', isOpen: false }}>
+    {({ setState, state }) => (
+      <Row>
+        <Dropdown
+          isOpen={state.isOpen}
+          onItemSelect={(option, e) => setState({ value: option.value })}
+          toggle={(isOpen) => setState({ isOpen })}
+          options={[
+            { name: 'ALL', value: 'ALL' },
+            { name: 'Cash Deposits', value: 'FIAT_DEPOSIT' },
+            { name: 'Cash Withdrawals', value: 'FIAT_WITHDRAWAL', active: true },
+            { name: 'separator-1', value: 'SEPARATOR' },
+            { name: 'Token Deposits', value: 'TOKEN_DEPOSIT', disabled: true },
+            { name: 'Token Withdrawals', value: 'TOKEN_WITHDRAWAL' },
+          ]}
+          styleMode="dark"
+          value={state.value}
+        />
+         <Button
+            btnType="primary"
+            onClick={() => setState({ isOpen: !state.isOpen })}
+            styleMode="dark"
+            size="lg"
+          >
+            {state.isOpen ? 'Close' : 'Open'} me
+          </Button>
+      </Row>
+    )}
+  </Component>
+</Playground>
+
+<br></br>
+<br></br>
+<br></br>
 <br></br>
 <br></br>
 <br></br>
