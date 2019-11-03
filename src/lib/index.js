@@ -14,6 +14,7 @@ import Input from './Input/Input';
 import Loading from './Loading/Loading';
 import Modal from './Modal/Modal';
 import ModalDrillDown from './ModalDrillDown/ModalDrillDown';
+import Navbar from './Navbar/Navbar';
 import NumberInput from './NumberInput/NumberInput';
 import Pagination from './Pagination/Pagination';
 import ProgressTracker from './ProgressTracker/ProgressTracker';
@@ -45,6 +46,7 @@ export {
   Loading,
   Modal,
   ModalDrillDown,
+  Navbar,
   NumberInput,
   Pagination,
   ProgressTracker,
