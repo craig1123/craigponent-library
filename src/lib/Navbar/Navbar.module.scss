@@ -1,35 +1,25 @@
 @import './../variables';
 
 .navbar-wrapper {
-  border: solid 1px $gray-3;
   border-radius: 3px;
   color: $gray-10;
-  margin-bottom: 15px;
-}
-
-.navbar-heading {
-  align-items: center;
-  background-color: $gray-1;
-  border-bottom: 1px solid $gray-4;
-  color: $gray-15;
   display: flex;
+  font-size: 12px;
   justify-content: space-between;
-  padding: 15px;
-}
-
-.navbar-body {
-  font-size: 16px;
-  padding: 20px 15px;
+  left: 0;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .dark.navbar-wrapper {
   background-color: $gray-15;
-  border: none;
   color: $gray-4;
+}
 
-  .navbar-heading {
-    background-color: $gray-14;
-    border: none;
-    color: $gray-4;
+@media (max-width: $tablet) {
+  .hamburger {
+    display: none;
   }
 }

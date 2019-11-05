@@ -1,5 +1,7 @@
 import React from 'react';
-import { oneOfType, string, func, shape, arrayOf, node } from 'prop-types';
+import { oneOfType, string, node } from 'prop-types';
+
+import MenuIcon from '../icons/menuIcon.svg';
 
 import styles from './Navbar.module.scss';
 
@@ -16,35 +18,21 @@ const Navbar = ({
   return (
     <div className={navbarClassName} {...rest}>
       {children}
+      <MenuIcon className="hamburger" onClick={() => {}} />
     </div>
   );
 };
 
 Navbar.propTypes = {
-  bodyClassName: string,
   children: oneOfType([node, string]),
   className: string,
   styleMode: string,
-  title: oneOfType([string, node]),
-  titleClassName: string,
-  titleProps: shape({}),
-  titleTag: oneOfType([
-    func,
-    string,
-    shape({}),
-    arrayOf(oneOfType([func, string, shape({})])),
-  ]),
 };
 
 Navbar.defaultProps = {
-  bodyClassName: '',
   children: null,
   className: '',
   styleMode: 'light',
-  title: null,
-  titleClassName: '',
-  titleProps: null,
-  titleTag: 'div',
 };
 
 export default Navbar;
