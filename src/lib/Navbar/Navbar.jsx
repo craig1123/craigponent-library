@@ -22,7 +22,7 @@ const Navbar = ({
     <nav>
       <div className={`${navbarClassName} ${styles['bigNav']}`} {...rest}>
         {logo}
-        {children}
+        <div>{children}</div>
       </div>
       <div className={`${navbarClassName} ${styles['littleNav']}`} {...rest}>
         {logo}
