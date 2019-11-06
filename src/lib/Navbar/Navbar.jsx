@@ -26,7 +26,7 @@ const Navbar = ({
       </div>
       <div className={`${navbarClassName} ${styles['littleNav']}`} {...rest}>
         {logo}
-        {showMenu ? children : null}
+        {showMenu ? <div className={`${styles['mobileLinks']}`}>{children}</div> : null}
         <MenuIcon
           className={`${styles['hamburger']}`}
           onClick={() => setShowMenu(!showMenu)}
