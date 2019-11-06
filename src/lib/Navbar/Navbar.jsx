@@ -1,5 +1,5 @@
-import React from 'react';
-import { oneOfType, string, node } from 'prop-types';
+import React, { useState } from 'react';
+import { oneOfType, string, node, object } from 'prop-types';
 
 import MenuIcon from '../icons/menuIcon.svg';
 
@@ -8,6 +8,7 @@ import styles from './Navbar.module.scss';
 const Navbar = ({
   children,
   className,
+  logo,
   styleMode,
   ...rest
 }) => {
@@ -15,23 +16,37 @@ const Navbar = ({
   const navbarClassName = `${
     styles['navbar-wrapper']
   } ${darkMode} ${className}`.trim();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
-    <div className={navbarClassName} {...rest}>
-      {children}
-      <MenuIcon className="hamburger" onClick={() => {}} />
-    </div>
+    <nav>
+      <div className={`${navbarClassName} ${styles['bigNav']}`} {...rest}>
+        {logo}
+        {children}
+      </div>
+      <div className={`${navbarClassName} ${styles['littleNav']}`} {...rest}>
+        {logo}
+        {showMenu ? children : null}
+        <MenuIcon
+          className={`${styles['hamburger']}`}
+          onClick={() => setShowMenu(!showMenu)}
+        />
+      </div>
+    </nav>
   );
 };
 
 Navbar.propTypes = {
   children: oneOfType([node, string]),
   className: string,
+  logo: oneOfType([node, object]),
   styleMode: string,
 };
 
 Navbar.defaultProps = {
   children: null,
   className: '',
+  logo: null,
   styleMode: 'light',
 };
 

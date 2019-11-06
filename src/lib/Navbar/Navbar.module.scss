@@ -1,8 +1,8 @@
 @import './../variables';
 
 .navbar-wrapper {
-  border-radius: 3px;
   color: $gray-10;
+  box-sizing: border-box;
   display: flex;
   font-size: 12px;
   justify-content: space-between;
@@ -13,12 +13,43 @@
   width: 100%;
 }
 
-.dark.navbar-wrapper {
-  background-color: $gray-15;
-  color: $gray-4;
+.bigNav {
+  display: none;
 }
 
-@media (max-width: $tablet) {
+.hamburger {
+  display: block;
+
+  line {
+    fill: $gray-15;
+    stroke: $gray-15;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.dark {
+  .hamburger {
+    line {
+      stroke: inherit;
+    }
+  }
+
+  &.navbar-wrapper {
+    background-color: $gray-15;
+    color: $gray-4;
+  }
+}
+
+@media (min-width: $tablet) {
+  .bigNav {
+    display: flex;
+  }
+  .littleNav {
+    display: none;
+  }
   .hamburger {
     display: none;
   }
