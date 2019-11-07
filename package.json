@@ -1,6 +1,6 @@
 {
   "name": "craigponent-library",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "description": "React Component Library for UI consistency between repositories",
   "main": "dist/index.js",
@@ -43,6 +43,7 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-react-hooks": "^2.1.2",
     "node-sass": "^4.12.0",
     "prettier": "^1.15.2",
     "react": "^16.9.0",

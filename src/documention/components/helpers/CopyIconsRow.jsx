@@ -33,7 +33,7 @@ class CopyIconsRow extends Component {
   };
 
   openModal = icon => () => {
-    const iconName = icon.type.__filemeta.name || icon.type.name; // eslint-disable-line no-underscore-dangle, prettier/prettier
+    const iconName = icon.type.__filemeta.name || icon.type.name; // eslint-disable-line no-underscore-dangle
 
     this.setState({ icon, iconName, modalOpen: true });
   };
@@ -103,7 +103,7 @@ class CopyIconsRow extends Component {
           height: 26,
           width: 26,
         })}
-        {child.type.__filemeta.name || child.type.name} {/* eslint-disable-line no-underscore-dangle, prettier/prettier */}
+        {child.type.__filemeta.name || child.type.name} {/* eslint-disable-line no-underscore-dangle */}
       </div>
     ));
 

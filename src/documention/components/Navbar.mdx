@@ -1,0 +1,49 @@
+---
+name: Navbar
+menu: Components
+route: /components-navbar
+---
+
+import { Playground, Props } from 'docz';
+import { Navbar } from '../../lib';
+
+# Navbar
+
+```javascript
+import Navbar from 'craigponent-library/dist/Navbar';
+```
+
+## Properties
+
+<Props of={Navbar} />
+
+## Basic Usage
+
+<Playground>
+  <div style={{ backgroundColor: "#ffffff", padding: '20px' }}>
+    <Navbar
+      logo={<img src="https://png.pngtree.com/element_our/sm/20180620/sm_5b29c1a236a02.png" style={{ height: '48px', width: '48px' }} />}
+      style={{ backgroundColor: "#eee", position: 'relative' }}
+    >
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 1</a>
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 2</a>
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 3</a>
+    </Navbar>
+  </div>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+  <div style={{ backgroundColor: "#ffffff", padding: '20px' }}>
+    <Navbar
+      logo={<img src="https://png.pngtree.com/element_our/sm/20180620/sm_5b29c1a236a02.png" style={{ height: '48px', width: '48px' }} />}
+      style={{ position: 'relative' }}
+      styleMode="dark"
+    >
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 1</a>
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 2</a>
+      <a href="#" style={{ color: 'grey', padding: '5px' }}>Link 3</a>
+    </Navbar>
+  </div>
+</Playground>
