@@ -1,4 +1,3 @@
-/* global jest */
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
@@ -26,4 +25,4 @@ global.document.createRange = () => ({
   commonAncestorContainer: {},
 });
 
-global.window.URL.createObjectURL = file => {};
+global.window.URL.createObjectURL = () => {};
