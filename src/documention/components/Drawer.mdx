@@ -1,0 +1,165 @@
+---
+name: Drawer
+menu: Components
+route: /components-drawer
+---
+
+import { Playground, Props } from 'docz';
+import Component from "react-component-component";
+import { Row, Box } from './helpers';
+import { Accordion, Drawer, Button } from '../../lib';
+
+# Drawer
+
+```javascript
+import Drawer from 'craigponent-library/dist/Drawer';
+```
+
+## Properties
+
+<Props of={Drawer} />
+
+## Basic Usage
+
+<Playground style={{ backgroundColor: '#fff'}}>
+  <Box style={{ background: "#fff", paddingTop: '20px' }} minHeight={80}>
+    <Component initialState={{ isOpen: false }}>
+      {({ setState, state }) => {
+        return (
+          <Row>
+            <Drawer
+              header="Basic Drawer"
+              isOpen={state.isOpen}
+              toggle={(isOpen) => setState({ isOpen })}
+              width="33vw"
+            >
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              />
+            </Drawer>
+            <Button
+                btnType="primary"
+                onClick={() => setState({ isOpen: !state.isOpen })}
+                styleMode="light"
+                size="lg"
+              >
+                {state.isOpen ? 'Close' : 'Open'} me
+            </Button>
+          </Row>
+        )
+      }}
+    </Component>
+  </Box>
+</Playground>
+
+## Dark Mode
+
+<Playground>
+      <Component initialState={{ isOpen: false }}>
+      {({ setState, state }) => {
+        return (
+          <Row>
+            <Drawer
+              header="Dark Drawer"
+              isOpen={state.isOpen}
+              toggle={(isOpen) => setState({ isOpen })}
+              styleMode="dark"
+              width="33vw"
+            >
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                styleMode="dark"
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                styleMode="dark"
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                styleMode="dark"
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                styleMode="dark"
+              />
+            </Drawer>
+            <Button
+                btnType="primary"
+                onClick={() => setState({ isOpen: !state.isOpen })}
+                styleMode="dark"
+                size="lg"
+              >
+                {state.isOpen ? 'Close' : 'Open'} me
+            </Button>
+          </Row>
+        )
+      }}
+    </Component>
+</Playground>
+
+## Positions
+
+<Playground>
+      <Component initialState={{ isOpen: false, position: 'left' }}>
+      {({ setState, state }) => {
+         return (
+          <>
+            <Row>
+              <Button size="lg" styleMode="dark" onClick={() => setState({ isOpen: !state.isOpen, position: 'left' })}>
+                Left
+              </Button>
+              <Button size="lg" styleMode="dark" onClick={() => setState({ isOpen: !state.isOpen, position: 'right' })}>
+                Right
+              </Button>
+              <Button size="lg" styleMode="dark" onClick={() => setState({ isOpen: !state.isOpen, position: 'top' })}>
+                Top
+              </Button>
+              <Button size="lg" styleMode="dark" onClick={() => setState({ isOpen: !state.isOpen, position: 'bottom' })}>
+                Bottom
+              </Button>
+            </Row>
+            <Drawer
+              header={`${state.position} drawer`}
+              isOpen={state.isOpen}
+              toggle={(isOpen) => setState({ isOpen })}
+              position={state.position}
+            >
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              />
+              <Accordion
+                title="A very, very, very, very, long title to set the width"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              />
+              <Accordion
+                title="Open me"
+                description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+              />
+            </Drawer>
+          </>
+        )
+      }}
+    </Component>
+</Playground>
