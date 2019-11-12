@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import useDimensions from 'lohook/src/useDimensions';
+import useDimensions from 'react-recipes/src/useDimensions';
 import Portal from '../Portal/Portal';
 import Arrow from './Arrow';
 import TipContainer from './TipContainer';
