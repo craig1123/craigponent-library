@@ -31,7 +31,7 @@ function Tooltip(props) {
   } = props;
 
   const [isShowing, setIsShowing] = useState(isOpen);
-  const [wrapperRef, dimensions] = useDimensions({});
+  const [wrapperRef, dimensions] = useDimensions();
 
   useEffect(() => {
     if (isOpen) {
