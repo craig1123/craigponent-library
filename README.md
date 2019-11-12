@@ -35,21 +35,11 @@ CSS Modules
 ### Docz
 The docs are built with ❤️ from [docz][]
 
-### Create a new component
-1. Create a new directory in `src/lib`. with the name of the component
-2. Make a `.jsx` file with the name of the component and a `[componentName].module/scss` file.
-3. Create a new `.mdx` file in `src/documentation/components`.
-4. Follow the format of other `.mdx` files. Make sure to add the component config at the top like so:
-```
----
-name: Accordion
-menu: Components
-route: /components-Accordion
----
-```
-5. Update `package.json` according to semver.
-6. Give a description of what changed in `src/CHANGELOG.mdx` followed by who made the changes.
-7. Profit 💰
+### Create a new component with Plop Component Generator
+1. `yarn plop` and follow the prompt or `yarn plop MyComponent` will generate `MyComponent.jsx`, `myComponent.module.scss`, `MyComponent.test.js`, and `MyComponent.mdx`  
+2. Update `package.json` according to semver.  
+3. Give a description of what changed in `src/CHANGELOG.mdx` followed by who made the changes.  
+4. Profit 💰  
 
 ### Automatic code formatting
 

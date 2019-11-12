@@ -13,6 +13,7 @@
     "build:web": "docz build",
     "dev": "yarn start",
     "lint": "eslint ./src",
+    "plop": "plop",
     "start": "docz dev",
     "stylelint": "stylelint ./src",
     "test": "cross-env CI=1 react-scripts test --env=jsdom",
@@ -22,7 +23,9 @@
     "x": "node ./scripts/buildDist"
   },
   "dependencies": {
-    "react-recipes": "^0.0.1"
+    "inquirer-directory": "^2.2.0",
+    "plop": "^2.5.3",
+    "react-recipes": "^0.0.5"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
