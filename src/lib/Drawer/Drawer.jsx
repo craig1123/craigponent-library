@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable no-use-before-define */
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { oneOfType, string, func, node, number, bool, oneOf } from 'prop-types';
 import Transition from 'react-transition-group/Transition';
 import Fade from '../Fade/Fade';
@@ -49,7 +49,7 @@ const Drawer = ({
     if (isOpen && !isShowing) {
       showDrawer();
     }
-  }, [isOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [isOpen]);
 
   useEffect(() => () => clearTimeout(timeout), []);
 
@@ -122,7 +122,7 @@ const Drawer = ({
   };
 
   return (
-    <Fragment>
+    <>
       <Transition in={isShowing} timeout={duration} {...rest}>
         {state => (
           <div
@@ -173,7 +173,7 @@ const Drawer = ({
           opacity={0.5}
         />
       )}
-    </Fragment>
+    </>
   );
 };
 
