@@ -1,4 +1,7 @@
-import React, { Fragment, useRef, useState, useEffect } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable no-use-before-define */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import React, { useRef, useState, useEffect } from 'react';
 import {
   string,
   arrayOf,
@@ -8,10 +11,14 @@ import {
   number,
   node,
   oneOfType,
+  oneOf,
 } from 'prop-types';
+import { useDimension } from 'react-recipes';
 import DownTriangle from '../icons/downTriangle.svg';
-import Tooltip from '../Tooltip/Tooltip';
+import Portal from '../Portal/Portal';
 import DropdownItem from './DropdownItem';
+import TipContainer from '../Tooltip/TipContainer';
+
 import styles from './dropdown.module.scss';
 
 const Dropdown = ({
@@ -30,15 +37,14 @@ const Dropdown = ({
   toggle,
   value,
   valueClassName,
+  offset,
   ...rest
 }) => {
-  const [isDDOpen, setIsDDOpen] = useState(isOpen);
+  const [isShowing, setIsShowing] = useState(isOpen);
+  const [wrapperRef, dimensions] = useDimension();
+
   const childrenRef = useRef(null);
   const firstOptionRef = useRef(null);
-
-  useEffect(() => {
-    setIsDDOpen(isOpen);
-  }, [isOpen]);
 
   const darkMode = styleMode === 'dark';
   const darkStyle = darkMode ? styles.dark : '';
@@ -48,60 +54,98 @@ const Dropdown = ({
   const tipContainterStyles = `${
     styles['tip-dropdown-container']
   } ${darkStyle} ${tipContainerClassName}`.trim();
-  const onDropdownOpen = () => {
-    if (!noFocus && firstOptionRef.current) {
-      firstOptionRef.current.focus();
+
+  useEffect(() => {
+    setIsShowing(isOpen);
+    return removeListeners;
+  }, [isOpen]);
+
+  const assignOutsideTouchHandler = () => {
+    document.addEventListener('click', handler);
+  };
+
+  const removeListeners = () => {
+    document.removeEventListener('click', handler);
+  };
+
+  const handler = e => {
+    let currentNode = e.target;
+    const componentNode = wrapperRef.current;
+    while (currentNode.parentNode) {
+      if (currentNode === componentNode) return;
+      currentNode = currentNode.parentNode;
+    }
+    if (currentNode !== document) return;
+    hideDropdown();
+    removeListeners();
+  };
+
+  const showDropdown = () => {
+    if (onOpen) {
+      onOpen();
     }
 
     if (toggle) {
       toggle(true);
     }
 
-    if (onOpen) {
-      onOpen();
-    }
+    setIsShowing(true);
   };
 
-  const onDropdownClose = () => {
-    if (childrenRef.current) {
-      childrenRef.current.focus();
+  const hideDropdown = () => {
+    if (onClose) {
+      onClose();
     }
 
     if (toggle) {
       toggle(false);
     }
 
-    if (onClose) {
-      onClose();
+    setIsShowing(false);
+  };
+
+  const handleTouch = () => {
+    if (isShowing) {
+      hideDropdown();
+      removeListeners();
+    } else {
+      showDropdown();
+      assignOutsideTouchHandler();
     }
   };
 
   return (
-    <Tooltip
-      backgroundColor={darkMode ? '#181818' : '#fff'}
+    <div
       className={dropdownStyles}
-      isOpen={isDDOpen}
-      onClose={onDropdownClose}
-      onOpen={onDropdownOpen}
-      tipContainerClassName={tipContainterStyles}
-      content={
-        content || (
-          <Fragment>
-            {options.map((option, i) => (
-              <DropdownItem
-                innerRef={i === 0 ? firstOptionRef : null}
-                option={option}
-                onItemSelect={onItemSelect}
-                key={option.name}
-                setIsDDOpen={setIsDDOpen}
-                styleMode={styleMode}
-              />
-            ))}
-          </Fragment>
-        )
-      }
+      onClick={handleTouch}
+      onKeyPress={handleTouch}
+      ref={wrapperRef}
       {...rest}
     >
+      <Portal>
+        <TipContainer
+          {...rest}
+          isShowing={isShowing}
+          dimensions={dimensions}
+          tipContainerClassName={tipContainterStyles}
+          backgroundColor={darkMode ? '#181818' : '#fff'}
+        >
+          {content || (
+            <>
+              {options.map((option, i) => (
+                <DropdownItem
+                  innerRef={i === 0 ? firstOptionRef : null}
+                  option={option}
+                  onItemSelect={onItemSelect}
+                  key={option.name}
+                  setIsDDOpen={setIsShowing}
+                  styleMode={styleMode}
+                />
+              ))}
+            </>
+          )}
+        </TipContainer>
+      </Portal>
       {children || (
         <div
           className={`${styles['dropdown-value']} ${valueClassName}`.trim()}
@@ -120,26 +164,26 @@ const Dropdown = ({
           fillColor={darkMode ? '#fff' : '#2f3337'}
         />
       )}
-    </Tooltip>
+    </div>
   );
 };
 
 Dropdown.propTypes = {
   onItemSelect: func.isRequired,
-  /** Show the tooltip arrow or not */
-  arrow: bool,
   /** Show the default caret triangle or not */
   caret: bool,
   children: node,
   className: string,
   /** Pass down content in place of options */
   content: node,
-  /** if true, the dropdown will open when hovered */
-  hover: bool,
+  delay: number,
+  duration: number,
+  easing: string,
   /** Makes the dropdown controlled */
   isOpen: bool,
   /** If true, will not focus the first element */
   noFocus: bool,
+  offset: string,
   /** Fired when the dropdown is closed */
   onClose: func,
   /** Fired when the dropdown is opened */
@@ -153,7 +197,7 @@ Dropdown.propTypes = {
     }),
   ),
   /** The direction the dropdown will open */
-  position: string,
+  position: oneOf(['bottom', 'bottom-left', 'bottom-right']),
   styleMode: string,
   /** Fired when the dropdown is opened or closed */
   tipContainerClassName: string,
@@ -163,14 +207,16 @@ Dropdown.propTypes = {
 };
 
 Dropdown.defaultProps = {
-  arrow: false,
   caret: true,
   children: null,
   className: '',
   content: null,
-  hover: false,
+  duration: 180,
+  delay: 0,
+  easing: 'ease-in-out',
   isOpen: false,
   noFocus: false,
+  offset: '0px',
   onClose: null,
   onOpen: null,
   options: [],

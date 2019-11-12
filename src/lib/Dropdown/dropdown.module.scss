@@ -5,10 +5,11 @@
 .dropdown-container {
   align-items: center;
   color: $gray-10;
-  display: flex !important;
+  display: flex;
   margin-right: 20px;
+  position: relative;
   width: max-content;
-  z-index: auto !important;
+  z-index: auto;
 
   &.dark {
     color: $white !important;
