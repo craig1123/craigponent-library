@@ -3,9 +3,7 @@
 ## 🚀 Getting started
 
 #### Install package
-```bash
-yarn add craigponent-library
-```
+* Not on NPM yet
 
 ### 👾 Usage
 
