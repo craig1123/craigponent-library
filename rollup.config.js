@@ -7,7 +7,7 @@ import url from 'rollup-plugin-url';
 // import filesize from 'rollup-plugin-filesize';
 
 import entries from './dist/entries.json'; // eslint-disable-line import/no-unresolved
-import craigPonents from './dist/craigPonents'; // eslint-disable-line import/no-unresolved
+import craigPonents from './dist/craigponents'; // eslint-disable-line import/no-unresolved
 
 // Paths
 const rootDir = path.resolve();

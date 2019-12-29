@@ -13652,10 +13652,10 @@ react-live@^2.1.2:
     react-simple-code-editor "^0.10.0"
     unescape "^0.2.0"
 
-react-recipes@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/react-recipes/-/react-recipes-0.0.5.tgz#38c11de0cca3bda2c15e6db46e6f01ed33b4f57e"
-  integrity sha512-o3kSsjvz1NBvymEuuAukhFaxj1vUe0QcGbEj1Lf5KK9uw7iZt6e7VDAoWrdUV1L5fecB2xHvIuB+QnZfQp5pgQ==
+react-recipes@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-recipes/-/react-recipes-0.1.0.tgz#fe27cbaf7267be5e92b67b78c8398630b96baf12"
+  integrity sha512-sLlmnetOMn47SFL2jkL7A9crpn7v9ISO9A78ctZET1HVHykBStZVEBLaGNjQzCqkWHKQb2KaityyTjFtYIETyw==
 
 react-reconciler@^0.21.0:
   version "0.21.0"

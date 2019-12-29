@@ -13,7 +13,7 @@ import {
   oneOfType,
   oneOf,
 } from 'prop-types';
-import { useDimension } from 'react-recipes';
+import { useDimensions } from 'react-recipes';
 import DownTriangle from '../icons/downTriangle.svg';
 import Portal from '../Portal/Portal';
 import DropdownItem from './DropdownItem';
@@ -41,7 +41,7 @@ const Dropdown = ({
   ...rest
 }) => {
   const [isShowing, setIsShowing] = useState(isOpen);
-  const [wrapperRef, dimensions] = useDimension();
+  const [wrapperRef, dimensions] = useDimensions();
 
   const childrenRef = useRef(null);
   const firstOptionRef = useRef(null);

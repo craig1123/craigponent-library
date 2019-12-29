@@ -23,7 +23,7 @@
     "x": "node ./scripts/buildDist"
   },
   "dependencies": {
-    "react-recipes": "^0.0.5"
+    "react-recipes": "^0.1.0"
   },
   "peerDependencies": {
     "prop-types": "^15.5.4",
