@@ -19,6 +19,7 @@ import NumberInput from './NumberInput/NumberInput';
 import Pagination from './Pagination/Pagination';
 import ProgressTracker from './ProgressTracker/ProgressTracker';
 import Radio from './Radio/Radio';
+import Rating from './Rating/Rating';
 import SectionHeader from './SectionHeader/SectionHeader';
 import Select from './Select/Select';
 import Table from './Table/Table';
@@ -51,6 +52,7 @@ export {
   Pagination,
   ProgressTracker,
   Radio,
+  Rating,
   SectionHeader,
   Select,
   Tabs,

@@ -1,0 +1,34 @@
+.rating {
+  display: inline-block;
+  position: relative;
+}
+
+.stars {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: space-between;
+
+  svg.star {
+    padding: 0 2%;
+    transition: opacity linear 0.2s;
+    width: 100%;
+    &.interact:hover,
+    &.interact:hover,
+    &:hover ~ svg {
+      opacity: 1;
+    }
+  }
+}
+
+.front {
+  max-width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  transition: width linear 0.5s;
+}
+
+.interact {
+  opacity: 0;
+}
