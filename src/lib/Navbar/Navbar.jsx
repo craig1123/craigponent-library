@@ -21,11 +21,11 @@ const Navbar = ({
   return (
     <nav>
       <div className={`${navbarClassName} ${styles['bigNav']}`} {...rest}>
-        {logo}
+        <a href="/">{logo}</a>
         <div>{children}</div>
       </div>
       <div className={`${navbarClassName} ${styles['littleNav']}`} {...rest}>
-        {logo}
+        <a href="/">{logo}</a>
         {showMenu ? <div className={`${styles['mobileLinks']}`}>{children}</div> : null}
         <MenuIcon
           className={`${styles['hamburger']}`}

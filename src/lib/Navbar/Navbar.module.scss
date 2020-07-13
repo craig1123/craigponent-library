@@ -1,9 +1,10 @@
 @import './../variables';
 
 .navbar-wrapper {
-  align-items: flex-start;
-  color: $gray-10;
+  align-items: center;
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
   box-sizing: border-box;
+  color: $gray-10;
   display: flex;
   font-size: 14px;
   justify-content: space-between;
@@ -12,6 +13,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9999;
 }
 
 .bigNav {
@@ -20,6 +22,8 @@
 
 .hamburger {
   display: block;
+  height: 30px;
+  width: 30px;
 
   line {
     fill: $gray-15;
